@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Weekly Wrap-Up · AI, Agents & Audio</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #181817;
+  --bg-slide: #1e1e1d;
+  --bg-slide-hover: #252524;
+  --text: #e8e4df;
+  --text-dim: #9a9590;
+  --accent: #e8753a;
+  --accent-dim: #a85a2e;
+  --blue: #5b9aff;
+  --green: #4ade80;
+  --orange: #fb923c;
+  --border: #2e2e2c;
+  --radius: 12px;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Top bar */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(24,24,23,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar h1 {
+  font-size: 15px; font-weight: 600; letter-spacing: 0.3px;
+}
+.topbar h1 span { color: var(--accent); }
+.topbar-controls { display: flex; align-items: center; gap: 12px; }
+.topbar select {
+  background: var(--bg-slide); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; font-size: 13px; cursor: pointer;
+  outline: none;
+}
+.topbar select:focus { border-color: var(--accent-dim); }
+.counter { font-size: 13px; color: var(--text-dim); min-width: 60px; text-align: center; }
+
+/* Stage */
+.stage {
+  position: fixed; top: 52px; left: 0; right: 0; bottom: 68px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 48px 80px 40px;
+  overflow-y: auto;
+  opacity: 0; transform: translateX(60px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.slide.exit-left { transform: translateX(-60px); }
+
+/* Slide typography */
+.kicker {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 10px;
+}
+.slide h2 {
+  font-size: clamp(28px, 4vw, 48px); font-weight: 700; line-height: 1.15;
+  margin-bottom: 24px; max-width: 900px;
+}
+.slide h3 {
+  font-size: 18px; font-weight: 600; color: var(--text);
+  margin: 28px 0 10px;
+}
+.slide p, .slide li {
+  font-size: 16px; line-height: 1.7; color: var(--text-dim);
+  max-width: 800px;
+}
+.slide ul, .slide ol { padding-left: 22px; margin: 12px 0; }
+.slide li { margin-bottom: 8px; }
+.slide strong { color: var(--text); font-weight: 600; }
+.slide a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+.slide a:hover { border-bottom-color: var(--accent); }
+.slide em.term { font-style: normal; color: var(--blue); font-weight: 500; }
+
+/* Badge */
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  margin-bottom: 16px; align-self: flex-start;
+}
+.badge.facts { background: rgba(91,154,255,0.15); color: var(--blue); }
+.badge.opinion { background: rgba(251,146,60,0.15); color: var(--orange); }
+.badge.try-it { background: rgba(74,222,128,0.15); color: var(--green); }
+
+/* Cover */
+.cover-badge { margin-bottom: 20px; }
+.cover-date { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.cover h2 { font-size: clamp(32px, 5vw, 56px); }
+.cover-summary { list-style: none; padding: 0; margin: 24px 0 0; }
+.cover-summary li {
+  font-size: 17px; padding: 10px 0; border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.cover-summary li:last-child { border-bottom: none; }
+
+/* Opinion slide */
+.who { font-weight: 700; color: var(--accent); font-size: 15px; display: block; margin-bottom: 6px; }
+.opinion-block { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.opinion-block:last-child { border-bottom: none; margin-bottom: 0; }
+
+/* Prompt block */
+pre.prompt {
+  background: #161615; border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px 20px;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 13px; line-height: 1.6; color: #c8c4bf;
+  position: relative; margin: 14px 0; overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+}
+.copy-btn {
+  position: absolute; top: 8px; right: 8px;
+  background: var(--bg-slide); border: 1px solid var(--border);
+  color: var(--text-dim); padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; cursor: pointer; transition: all 0.15s;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Sources slide */
+.source-list { list-style: none; padding: 0; }
+.source-list li { margin-bottom: 6px; font-size: 14px; }
+.source-list a { font-size: 13px; }
+.source-section-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); margin: 20px 0 8px; }
+.source-section-title:first-child { margin-top: 0; }
+.source-notes { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-dim); font-style: italic; }
+
+/* Bottom nav */
+.bottombar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(24,24,23,0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+}
+.nav-btn {
+  background: var(--bg-slide); border: 1px solid var(--border);
+  color: var(--text); padding: 8px 18px; border-radius: 8px;
+  font-size: 13px; cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-btn:hover { background: var(--accent); border-color: var(--accent); }
+.nav-btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+.dots { display: flex; gap: 6px; align-items: center; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); cursor: pointer; transition: all 0.2s;
+}
+.dot.active { background: var(--accent); transform: scale(1.3); }
+.dot:hover { background: var(--accent-dim); }
+
+/* Scrollbar */
+.slide::-webkit-scrollbar { width: 6px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+.slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.slide::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide { padding: 32px 24px 24px; }
+  .topbar { padding: 10px 16px; }
+  .bottombar { padding: 10px 16px; }
+  .cover h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>The Weekly <span>Wrap-Up</span></h1>
+  <div class="topbar-controls">
+    <select id="editionPicker"></select>
+    <span class="counter" id="counter">1 / 1</span>
+  </div>
+</div>
+
+<div class="stage" id="stage"></div>
+
+<div class="bottombar">
+  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)">&larr; Prev</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="nextBtn" onclick="navigate(1)">Next &rarr;</button>
+</div>
+
+<script src="editions.js"></script>
+<script>
+(function() {
+  var stage = document.getElementById('stage');
+  var picker = document.getElementById('editionPicker');
+  var counter = document.getElementById('counter');
+  var dotsEl = document.getElementById('dots');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  var edIndex = 0, slideIndex = 0;
+
+  // Build picker
+  EDITIONS.forEach(function(ed, i) {
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = ed.label;
+    picker.appendChild(opt);
+  });
+  picker.addEventListener('change', function() { edIndex = +picker.value; slideIndex = 0; render(); });
+
+  function render() {
+    var ed = EDITIONS[edIndex];
+    var slides = buildSlides(ed);
+    stage.innerHTML = '';
+    slides.forEach(function(html, i) {
+      var el = document.createElement('div');
+      el.className = 'slide' + (i === 0 ? ' active' : '');
+      el.innerHTML = html;
+      stage.appendChild(el);
+    });
+    // Copy buttons
+    var pres = stage.querySelectorAll('pre.prompt');
+    for (var i = 0; i < pres.length; i++) {
+      (function(pre) {
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          var txt = pre.textContent.replace(/Copy\s*/, '');
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(function() {
+              btn.textContent = 'Copied!';
+              setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+            });
+          }
+        });
+        pre.style.position = 'relative';
+        pre.appendChild(btn);
+      })(pres[i]);
+    }
+    // Dots
+    dotsEl.innerHTML = '';
+    slides.forEach(function(_, i) {
+      var d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function() { goTo(i); });
+      dotsEl.appendChild(d);
+    });
+    slideIndex = 0;
+    updateNav();
+  }
+
+  function buildSlides(ed) {
+    var slides = [];
+
+    // Cover
+    slides.push(
+      '<div class="cover-badge"><span class="badge facts">Edition</span></div>' +
+      '<div class="cover-date">' + ed.date + '</div>' +
+      '<h2>' + ed.headline + '</h2>' +
+      '<ul class="cover-summary">' +
+      ed.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('') +
+      '</ul>'
+    );
+
+    // Content slides
+    ed.slides.forEach(function(s) {
+      slides.push(
+        '<span class="badge ' + s.type + '">' + (s.type === 'try-it' ? 'Try It' : s.type) + '</span>' +
+        '<div class="kicker">' + s.kicker + '</div>' +
+        '<h2>' + s.title + '</h2>' +
+        s.html
+      );
+    });
+
+    // Sources
+    var src = ed.sources;
+    var srcHtml = '';
+    if (src.videos && src.videos.length) {
+      srcHtml += '<div class="source-section-title">Videos</div><ul class="source-list">';
+      src.videos.forEach(function(v) { srcHtml += '<li><a href="' + v.url + '" target="_blank" rel="noopener">' + v.title + '</a></li>'; });
+      srcHtml += '</ul>';
+    }
+    if (src.articles && src.articles.length) {
+      srcHtml += '<div class="source-section-title">Articles</div><ul class="source-list">';
+      src.articles.forEach(function(a) { srcHtml += '<li><a href="' + a.url + '" target="_blank" rel="noopener">' + a.title + '</a></li>'; });
+      srcHtml += '</ul>';
+    }
+    if (src.x && src.x.length) {
+      srcHtml += '<div class="source-section-title">X / Twitter</div><ul class="source-list">';
+      src.x.forEach(function(x) { srcHtml += '<li><a href="' + x.url + '" target="_blank" rel="noopener">' + x.title + '</a></li>'; });
+      srcHtml += '</ul>';
+    }
+    if (src.notes) {
+      srcHtml += '<div class="source-notes">' + src.notes + '</div>';
+    }
+    slides.push(
+      '<div class="kicker">Sources</div>' +
+      '<h2>What we read this week</h2>' +
+      srcHtml
+    );
+
+    return slides;
+  }
+
+  function goTo(idx) {
+    var slideEls = stage.querySelectorAll('.slide');
+    var dotEls = dotsEl.querySelectorAll('.dot');
+    if (idx < 0 || idx >= slideEls.length) return;
+    slideEls[slideIndex].classList.remove('active');
+    slideEls[slideIndex].classList.add('exit-left');
+    dotEls[slideIndex].classList.remove('active');
+    slideIndex = idx;
+    slideEls[slideIndex].classList.remove('exit-left');
+    slideEls[slideIndex].classList.add('active');
+    dotEls[slideIndex].classList.add('active');
+    updateNav();
+  }
+
+  function navigate(dir) { goTo(slideIndex + dir); }
+
+  function updateNav() {
+    var total = stage.querySelectorAll('.slide').length;
+    counter.textContent = (slideIndex + 1) + ' / ' + total;
+    prevBtn.disabled = slideIndex === 0;
+    nextBtn.disabled = slideIndex === total - 1;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); navigate(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); navigate(-1); }
+  });
+
+  var touchStartX = 0;
+  stage.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 60) navigate(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  render();
+})();
+</script>
+</body>
+</html>
