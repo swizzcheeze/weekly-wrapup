@@ -1,5 +1,167 @@
 const EDITIONS = [
 {
+  date: "2026-06-25",
+  label: "June 25, 2026",
+  headline: "OpenAI builds the full stack (chips, agents, security), Claude Tag redefines teamwork, and MiniMax M3 goes open-source with 1M context",
+  summary: [
+    "OpenAI and Broadcom unveil Jalapeño — first LLM-optimized inference chip, designed from scratch around OpenAI's model roadmap, with gigawatt-scale deployment planned via Microsoft starting 2026",
+    "Anthropic launches Claude Tag on Slack: an always-on AI teammate that learns context across channels, takes initiative, and works asynchronously — 65% of Anthropic's product team code is already created this way",
+    "OpenAI Daybreak expands: GPT-5.5-Cyber hits 85.6% on CyberGym (beats Mythos 5's 83.8%), Codex Security has scanned 30M+ commits across 30K+ codebases, and Patch the Planet commits 30 open-source projects",
+    "MiniMax M3 goes open-source on Hugging Face: ~428B params (23B active), 1M context via Sparse Attention, native multimodal (text+image+video), 9x prefill speedup, available via SGLang/vLLM/Transformers",
+    "Samsung deploys ChatGPT Enterprise + Codex to all Korea employees and global DX division — one of OpenAI's largest enterprise rollouts; Codex weekly active users in Korea up 800% since February"
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "Full-stack AI: chips, agents, security, and open weights all land in one week",
+      type: "facts",
+      html: "<p>The June 20-25 window is about AI companies building <em class=\"term\">down the stack</em> and <em class=\"term\">out across teams</em>. OpenAI unveiled its first custom inference chip (Jalapeño) with Broadcom — a blank-slate LLM accelerator entering gigawatt-scale deployment. Anthropic shipped Claude Tag, turning Slack into a persistent agent workspace. OpenAI's Daybreak moved security from vulnerability discovery to automated patching at scale. And MiniMax released M3 as fully open weights, making million-token-context multimodal models runnable locally. The common thread: the competitive advantage is shifting from model quality alone to infrastructure, distribution, and workflow integration.</p>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "Claude Tag, Codex-maxxing, and agentic work going non-developer",
+      type: "facts",
+      html: "<h3>Claude Tag: always-on agent in Slack (Jun 23)</h3><p><a href=\"https://www.anthropic.com/news/introducing-claude-tag\" target=\"_blank\" rel=\"noopener\">Anthropic launched Claude Tag</a> on Slack for Enterprise and Team customers. Tag <strong>@Claude</strong> in any channel and it breaks tasks into stages, works asynchronously, and responds in threads. Key differentiators: <strong>multiplayer</strong> (one Claude per channel, everyone sees its work), <strong>persistent learning</strong> (builds context across conversations without re-explaining), <strong>proactive updates</strong> (ambient mode flags relevant info), and <strong>scheduled tasks</strong> (autonomous work over hours/days). Admins scope Claude's identity per channel — sales Claude cannot access engineering data. At Anthropic internally, <strong>65% of product team code</strong> is already created via Claude Tag. Available today in beta.</p><h3>Codex-maxxing: agents beyond a single prompt (Jun 22)</h3><p>OpenAI published <a href=\"https://openai.com/index/codex-maxxing-long-running-work/\" target=\"_blank\" rel=\"noopener\">a whitepaper on long-horizon Codex usage</a>. Key data: by May 2026, <strong>80.6%</strong> of individual Codex users made at least one request exceeding 30 minutes of human work; <strong>70.2%</strong> exceeded one hour; <strong>25.6%</strong> exceeded eight hours. Non-developer users grew <strong>137x</strong> (individuals) and <strong>189x</strong> (organizations) since August 2025. At OpenAI, Codex accounts for <strong>99.8%</strong> of weekly output tokens. The 99th percentile of daily active users runs <strong>60+ hours of Codex agent turns per day</strong> across parallel agents.</p><h3>Samsung: enterprise agent deployment at scale (Jun 21)</h3><p><a href=\"https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/\" target=\"_blank\" rel=\"noopener\">Samsung Electronics deployed ChatGPT Enterprise and Codex</a> to all employees in Korea and all Device eXperience (DX) employees worldwide. Use cases span software, marketing, product development, and manufacturing. Codex weekly active users in Korea grew <strong>nearly 800%</strong> since February 1, 2026. <strong>5 million+ people</strong> now use Codex weekly across technical and non-technical roles.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "MiniMax M3 open weights, Jalapeño chip, and Patch the Planet",
+      type: "facts",
+      html: "<h3>MiniMax M3 — open weights on Hugging Face</h3><p><a href=\"https://huggingface.co/MiniMaxAI/MiniMax-M3\" target=\"_blank\" rel=\"noopener\">MiniMax-M3</a> is now available as open weights. <strong>~428B parameters</strong> with <strong>~23B active</strong> (MoE). Key innovation: <strong>MiniMax Sparse Attention (MSA)</strong> — a sparse attention operator delivering <strong>9× prefill and 15× decode speedups</strong> at 1M context vs. prior M2, reducing per-token compute to <strong>1/20</strong>. Native multimodal from day one (text, image, video mixed training). Three reasoning modes: <code>enabled</code>, <code>adaptive</code>, <code>disabled</code>. Run via SGLang, vLLM, Transformers, KTransformers, or Unsloth. Technical report: <a href=\"https://arxiv.org/abs/2606.13392\" target=\"_blank\" rel=\"noopener\">arXiv:2606.13392</a>.</p><h3>OpenAI Jalapeño inference chip (Jun 24)</h3><p><a href=\"https://openai.com/index/openai-broadcom-jalapeno-inference-chip/\" target=\"_blank\" rel=\"noopener\">OpenAI and Broadcom unveiled Jalapeño</a> — OpenAI's first Intelligence Processor. Designed from scratch around LLM inference patterns (kernels, memory movement, networking). Delivered from design to production in <strong>nine months</strong>. Engineering samples running ML workloads at production target frequency. Early testing shows <strong>performance per watt substantially better than state-of-the-art</strong>. Multi-generation roadmap with gigawatt-scale deployment alongside Microsoft starting 2026. Full technical report coming in coming months.</p><h3>Patch the Planet (Jun 22)</h3><p>OpenAI, <a href=\"https://openai.com/index/patch-the-planet/\" target=\"_blank\" rel=\"noopener\">Trail of Bits, and HackerOne</a> launched Patch the Planet to help open-source projects move from vulnerability findings to fixes. <strong>30+ open-source projects</strong> committed including <strong>cURL, Go, Python, Sigstore, and pyca/cryptography</strong>. Combines OpenAI's model capability with security partner expertise and maintainer workflow integration.</p>"
+    },
+    {
+      id: "audio",
+      kicker: "Voice & Audio",
+      title: "Quiet window — GPT-Realtime-2 lands in production, no new models",
+      type: "facts",
+      html: "<p>This window had no new voice model releases (GPT-Realtime-2 launched May 7). Notable production usage: OpenAI's <a href=\"https://openai.com/index/how-agents-are-transforming-work/\" target=\"_blank\" rel=\"noopener\">agentic-work paper</a> documents how voice and realtime models are being integrated into Codex workflows, but no new audio-specific launches this week. See sources.notes for quiet sources.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "GPT-5 solves a 3-year immunology mystery, Daybreak moves to patching",
+      type: "facts",
+      html: "<h3>GPT-5 Pro solves immunology mystery (Jun 23)</h3><p><a href=\"https://openai.com/index/gpt-5-immunology-mystery/\" target=\"_blank\" rel=\"noopener\">OpenAI documented</a> how GPT-5 Pro helped immunologist <strong>Derya Unutmaz</strong> (Jackson Laboratory / UConn) solve a three-year-old puzzle about how glucose metabolism affects T cell specialization. The model suggested that <strong>deoxyglucose interferes with IL-2 protein construction</strong>, removing a barrier to Th17 cell formation — an insight Unutmaz and his lab had missed. GPT-5 Pro also <strong>correctly predicted</strong> the outcome of a separate unpublished experiment on CD8+ T cells' lymphoma-killing ability. Unutmaz called it the moment he felt models truly understand.</p><h3>GPT-5.5-Cyber: from finding to fixing (Jun 22)</h3><p>OpenAI's Daybreak expansion shifts the bottleneck in security from <em>finding</em> vulnerabilities to <em>patching</em> them. <strong>GPT-5.5-Cyber</strong> scores <strong>85.6% on CyberGym</strong> (vs. base GPT-5.5 at 81.8%, prior version at 81.9%, Mythos 5 at 83.8%). On ExploitGym (n-day reproduction): GPT-5.5-Cyber reproduced <strong>18 of 41 n-day exploits</strong> vs Mythos 5's 18 of 41 — but at far lower cost. Codex Security has scanned <strong>30M+ commits</strong> across <strong>30K+ codebases</strong> since March; human reviewers marked <strong>70,000+ findings as fixed</strong>; <strong>500,000+</strong> auto-determined as fixed.</p><h3>Codex economic evidence (Jun 25)</h3><p>OpenAI's <a href=\"https://openai.com/index/how-agents-are-transforming-work/\" target=\"_blank\" rel=\"noopener\">Economic Research paper</a> provides hard data on agentic adoption: at OpenAI, every department (Legal, Finance, Recruiting) now uses Codex as their <strong>primary AI tool</strong>. Non-developer users grew 137x (individual) and 189x (organizational) since August 2025. 25.6% of users now make requests exceeding 8 hours of human work.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Run M3 locally, adopt Claude Tag patterns, harden with Codex Security",
+      type: "try-it",
+      html: "<h3>1. Run MiniMax M3 locally</h3><p>Download and serve M3 with SGLang or vLLM:</p><pre class=\"prompt\">pip install sglang\npython -m sglang.launch_server --model MiniMaxAI/MiniMax-M3 \\\n  --tp 4 --mem-fraction-static 0.85</pre><p>Or use the Hugging Face <code>transformers</code> integration. Try the <code>adaptive</code> reasoning mode for agentic tasks — it auto-determines when extra thinking helps. The 1M context means you can feed entire codebases without chunking.</p><h3>2. Adopt the \"ambient agent\" pattern from Claude Tag</h3><p>Claude Tag's architecture separates into reusable patterns: (a) <strong>channel-scoped identity</strong> — one agent per context, not per user; (b) <strong>persistent memory across sessions</strong> — no re-explaining; (c) <strong>proactive follow-up</strong> — the agent flags stale threads. You can replicate this with any coding agent: give it a dedicated channel/thread, persistent storage, and a heartbeat to check unresolved items. The key insight from Anthropic: <em>multiplayer > single-user</em> for organizational adoption.</p><h3>3. Scan your codebase with Codex Security</h3><p>If you maintain open-source code, apply for the <a href=\"https://openai.com/daybreak/\" target=\"_blank\" rel=\"noopener\">Daybreak Cyber Partner Program</a> or use the Codex Security plugin. It has already found <strong>792 critical and 10,561 high-severity findings</strong> across open-source projects in its initial run. Even if you don't use OpenAI's tool, the pattern is clear: <strong>run automated vulnerability scanning on every commit, not just on release</strong>.</p><h3>4. Test MSA vs GQA for long-context inference</h3><p>If you run local models at long context, benchmark MiniMax Sparse Attention (MSA) against standard GQA. MSA delivers 9× prefill and 15× decode speedups at 1M context. The operator is open-source at <a href=\"https://github.com/MiniMax-AI/MSA\" target=\"_blank\" rel=\"noopener\">github.com/MiniMax-AI/MSA</a>. Worth testing if you're serving models beyond 200K tokens.</p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "The full-stack race is here, and agents are eating the application layer",
+      type: "opinion",
+      html: "<p><span class=\"who\">OpenAI (Greg Brockman)</span> argues that \"the world is moving to a compute-powered economy\" and that building your own chips is necessary to serve \"more intelligence with greater efficiency.\" Jalapeño is the first move in a strategy where model labs become infrastructure companies — controlling kernels, memory systems, networking, and deployment. The implication: the moat is no longer just the model weights, it's the entire serving stack optimized around them.</p><p><span class=\"who\">Anthropic (product team)</span> is betting that the future of coding agents is <em>collaborative and persistent</em> rather than single-session. Claude Tag's design — one agent per channel, learning over time, multiplayer — treats the agent as a <em>team member</em> rather than a tool. The 65% internal adoption at Anthropic suggests this isn't just a product pitch; it's a workflow transformation. The open question: does this pattern work outside Slack-centric organizations?</p><p><span class=\"who\">OpenAI's Daybreak team</span> frames the cybersecurity bottleneck as \"patching, not finding.\" With 30M commits scanned and 70K+ human-confirmed fixes, they're making the case that AI security is an automation problem, not a talent problem. The timing — same week Claude Mythos 5 was export-controlled — highlights the tension between capability and control.</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      { title: "OpenAI and Broadcom unveil Jalapeño inference chip", url: "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/" },
+      { title: "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery", url: "https://openai.com/index/gpt-5-immunology-mystery/" },
+      { title: "Daybreak: Tools for securing every organization in the world", url: "https://openai.com/index/daybreak-securing-the-world/" },
+      { title: "Codex-maxxing for long-running work", url: "https://openai.com/index/codex-maxxing-long-running-work/" },
+      { title: "How agents are transforming work (Economic Research)", url: "https://openai.com/index/how-agents-are-transforming-work/" },
+      { title: "Samsung Electronics brings ChatGPT and Codex to employees", url: "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/" },
+      { title: "Anthropic: Introducing Claude Tag", url: "https://www.anthropic.com/news/introducing-claude-tag" },
+      { title: "TechCrunch: Anthropic's Claude Tag", url: "https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/" },
+      { title: "MiniMax-M3 on Hugging Face", url: "https://huggingface.co/MiniMaxAI/MiniMax-M3" },
+      { title: "MiniMax M3 technical report (arXiv)", url: "https://arxiv.org/abs/2606.13392" },
+      { title: "GPT-5.5-Cyber vs Mythos 5 comparison", url: "https://lushbinary.com/blog/gpt-5-5-cyber-vs-claude-mythos-5-cybersecurity-comparison/" },
+      { title: "OpenAI Daybreak expansion (The Hacker News)", url: "https://thehackernews.com/2026/06/openai-expands-daybreak-with-gpt-55.html" }
+    ],
+    x: [],
+    notes: "YouTube channels (All-In, a16z, Dwarkesh, GregIsenberg, TechWithTim, RileyBrownAI) had no uploads within the June 20-25 window at time of fetch. No new voice/audio model releases this window (GPT-Realtime-2 was May 7). X/Twitter API key not configured, so no tweets fetched. Gemini 3.1-flash-image-preview and 3-pro-image-preview deprecated June 25 (Google I/O 2026 was earlier in the year)."
+  }
+},
+{
+  date: "2026-06-19",
+  label: "June 19, 2026",
+  headline: "SpaceX buys Cursor for $60B, agents get hijacked by fake bug reports, and open-weight GLM-5.2 beats GPT-5.5 at 1/6 the cost",
+  summary: [
+    "SpaceX acquires Cursor (Anysphere) for $60 billion in stock \u2014 the largest startup acquisition ever \u2014 four days after its $75B IPO, after xAI lost all 11 co-founders",
+    "Agentjacking: a fake Sentry error report hijacks AI coding agents (Claude Code, Cursor, Codex) with 85% success across 2,388 exposed organizations \u2014 Tenet open-sources agent-jackstop",
+    "Z.ai releases GLM-5.2: 753B open-weight model (MIT license) beats GPT-5.5 on SWE-bench Pro and FrontierSWE at roughly 1/6 the API cost, with 1M-token context",
+    "The Fable 5 export ban was triggered by \"fix this code\" \u2014 Katie Moussouris (only outside expert to read the report) calls it standard defensive work, not a jailbreak; 300+ security leaders sign open letter",
+    "OpenAI goes enterprise: $150M partner network, spend controls for Enterprise, health-grade GPT-5.5 Instant for all free users, LifeSciBench (best AI passes only 36%), and a near-autonomous AI chemist"
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "Consolidation, security holes, and open weights closing the gap",
+      type: "facts",
+      html: "<p>The week of June 14\u201319 delivered three structural shifts at once. SpaceX bought the leading AI coding tool (Cursor) for $60B, patching xAI\u2019s collapsed product team with market position. A new class of agent attack (Agentjacking) showed that connecting coding agents to external telemetry is a critical vulnerability. And Z.ai\u2019s GLM-5.2 proved that open-weight models can beat GPT-5.5 on real coding benchmarks at a fraction of the cost. Meanwhile, the Fable 5 shutdown story got weirder: the \u201cjailbreak\u201d was three words \u2014 \u201cfix this code\u201d \u2014 and 300+ cybersecurity leaders are now publicly demanding reversal.</p>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "Agentjacking, deployment simulation, and the enterprise land grab",
+      type: "facts",
+      html: "<h3>Agentjacking: fake bug reports hijack your coding agents</h3><p><a href=\"https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/\" target=\"_blank\" rel=\"noopener\">Tenet Security\u2019s Threat Labs</a> published research (Jun 17) demonstrating an attack that exploits public Sentry DSNs and the Sentry MCP server to inject malicious instructions into <strong>Claude Code, Cursor, and Codex</strong>. The attack works because AI coding agents treat Sentry error reports as trusted system output \u2014 the injected instructions are visually indistinguishable from Sentry\u2019s own remediation guidance. <strong>85% exploitation rate</strong> across <strong>2,388 exposed organizations</strong>. A Fortune 100 company ($250B market cap) was compromised in testing. No phishing, no malware, no server break-in \u2014 just a fake error report. Sentry acknowledged the issue but called it \u201cnot technically defensible\u201d at the source. Tenet open-sourced <a href=\"https://github.com/tenet-security/agent-jackstop\" target=\"_blank\" rel=\"noopener\">agent-jackstop</a> with drop-in configs to harden Cursor and Claude Code.</p><h3>OpenAI Deployment Simulation (Jun 16)</h3><p>OpenAI published a <a href=\"https://openai.com/index/deployment-simulation/\" target=\"_blank\" rel=\"noopener\">new pre-deployment safety framework</a> that replays ~1.3M de-identified production conversations with candidate models to forecast misalignment rates before launch. Applied to GPT-5-series Thinking deployments and agentic rollouts. Addresses three gaps in traditional evals: coverage, selection bias, and models recognizing they\u2019re being tested. Works for both chat and agentic settings with tool use.</p><h3>OpenAI Partner Network (Jun 14)</h3><p>OpenAI launched its first formal global partner program, backed by <strong>$150 million</strong>. Three tiers: Select, Advanced, Elite. Goal: train <strong>300,000 certified consultants</strong> by end of 2026. Launch partners include Accenture, BCG, Bain, and Artium. Customer proof points: Paychex achieved 80% reduction in wait time for payroll requests; eBay built a next-gen AI customer service platform.</p><h3>ChatGPT Enterprise: spend controls &amp; usage analytics (Jun 18)</h3><p>Admins can now track usage by user, product, and model; set default workspace limits, per-group limits, and individual overrides; employees can request additional credits with context. Unified Cost API for external analysis. Zipline (drone delivery) cited as an early user for finding non-adopters and scaling Codex productivity.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "GLM-5.2, SPECS AR glasses, and AI in orbit",
+      type: "facts",
+      html: "<h3>GLM-5.2 \u2014 open-weight model beats GPT-5.5 (Jun 16)</h3><p><a href=\"https://z.ai/blog/glm-5.2\" target=\"_blank\" rel=\"noopener\">Z.ai released GLM-5.2</a>: <strong>753B parameters</strong> (40B active, MoE), <strong>MIT license</strong>. Key leap: <strong>1M-token context</strong> (up from 200K in GLM-5.1) with \u201cIndexShare\u201d architecture reducing per-token FLOPs by <strong>2.9\u00d7</strong> at 1M context. Selectable \u201cMax\u201d and \u201cHigh\u201d thinking modes. Benchmarks: <strong>SWE-bench Pro: 62.1</strong> (GPT-5.5: 58.6), <strong>FrontierSWE: 74.4%</strong> (GPT-5.5: 72.6%, Opus 4.8: 75.1%), <strong>Terminal-Bench 2.1: 81.0</strong> (Opus 4.8: 85.0). <strong>Artificial Analysis Intelligence Index: 51</strong> \u2014 leading open-weights model. Pricing via OpenRouter: ~<strong>$1.40/M input, $4.40/M output</strong> (vs GPT-5.5 at $5/$30). Ranked <strong>2nd on Code Arena WebDev</strong> behind Claude Fable 5. Open weights on HuggingFace and GitHub.</p><h3>Snap SPECS AR Glasses (Jun 16)</h3><p>Snap unveiled <a href=\"https://newsroom.snap.com/introducing-specs-augmented-reality-glasses\" target=\"_blank\" rel=\"noopener\">SPECS</a> at AWE 2026: <strong>$2,195</strong>, shipping fall 2026 in US/UK/France. Two Snapdragon processors, 51\u00b0 FOV, 7ms motion-to-photon latency, 4-hour mixed-use battery, electrochromic auto-tint. The developer story matters more: <strong>Lens Studio AI</strong> adds agentic development, with developer previews in <strong>Claude Code, Codex, and Cursor</strong>. Snap also released a <strong>SPECS Spatial Benchmark</strong> \u2014 GPT-5.5 performed best overall across spatial tasks, with Gemini 3 Flash and Kimi K2.6 close behind.</p><h3>Gemma 3 in orbit \u2014 first AI in space</h3><p>Google\u2019s <strong>Gemma 3</strong> vision-language model is running autonomously aboard <a href=\"https://techcrunch.com/2026/06/15/a-satellite-just-learned-to-find-things-on-own-heres-what-that-means/\" target=\"_blank\" rel=\"noopener\">Loft Orbital\u2019s YAM-9 satellite</a> \u2014 the first Earth observation satellite to autonomously identify objects of interest in orbit. Google\u2019s broader Project Suncatcher aims to deploy orbital AI data centers by early 2027.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "AI fails 64% of real science tasks, but autonomously improves drug reactions",
+      type: "facts",
+      html: "<h3>LifeSciBench (Jun 17) \u2014 best AI passes only 36%</h3><p>OpenAI released <a href=\"https://openai.com/index/introducing-life-sci-bench/\" target=\"_blank\" rel=\"noopener\">LifeSciBench</a>: 750 tasks written by <strong>173 PhD-level scientists</strong> across biotech/pharma, with <strong>19,020 rubric criteria</strong> and 1,062 attached artifacts (figures, PDFs, tables, sequence files). Tests 7 research workflows: evidence handling, analysis, design/optimization, scientific reasoning, validation, translation, scientific communication. Results: <strong>GPT-Rosalind</strong> (domain-specialized) led with <strong>36.1% pass rate</strong>; <strong>GPT-5.5 scored 25.7%</strong>. 79% of tasks require multi-step reasoning; 53% require interpreting attached artifacts. The gap between benchmark scores and real scientific work is enormous.</p><h3>Near-autonomous AI chemist improves drug reaction (Jun 17)</h3><p>OpenAI and Molecule.one connected <strong>GPT-5.4</strong> to <strong>Maria</strong> \u2014 an agentic chemistry AI integrated with a high-throughput lab. The system autonomously improved <strong>Chan-Lam coupling</strong> (a key drug-discovery reaction). Ran <strong>10,080 reactions</strong> over ~3 months. Results: mean yield rose from <strong>16.6% to 25.2%</strong>; share of reactions above 30% yield increased from <strong>15.6% to 37.5%</strong>. <strong>88% of boronic acids and 83% of sulfonamides</strong> showed improved yields. Bench-scale validation confirmed 11 of 14 substrate pairs. This is AI going from \u201canswering questions\u201d to \u201crunning experiments and improving chemistry.\u201d</p><h3>GPT-5.5 Instant hits frontier health level (Jun 18)</h3><p>OpenAI announced <strong>GPT-5.5 Instant</strong> now performs at frontier Thinking-model level on health evaluations including HealthBench Professional. Available to <strong>all free users</strong>. Production monitoring across billions of messages shows a <strong>71% reduction in factuality issues</strong> over the last two months. Responses rated higher than physician-written responses across accuracy, communication, completeness, and health decision helpfulness in a 3,500-response evaluation.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Harden your agents, try GLM-5.2, and audit trust boundaries",
+      type: "try-it",
+      html: "<h3>1. Install agent-jackstop immediately</h3><p>If you run Claude Code, Cursor, or Codex with MCP connections to Sentry or other telemetry, install <a href=\"https://github.com/tenet-security/agent-jackstop\" target=\"_blank\" rel=\"noopener\">agent-jackstop</a> right now. Drop-in configs sanitize error reports before they reach your coding agents. The core principle: <strong>treat all external telemetry input as untrusted user input</strong>, not as trusted system output.</p><h3>2. Run GLM-5.2 for long-horizon coding</h3><p>Try <code>google/glm-5.2-753B-A40B-it</code> on HuggingFace or via OpenRouter. At ~$1.40/$4.40 per M tokens, it\u2019s 3\u20136x cheaper than GPT-5.5. Use the <strong>Max effort mode</strong> for complex agentic coding tasks (SWE-bench-level work). Use <strong>High</strong> for latency-sensitive production workloads. The 1M context window means you can feed entire codebases without chunking.</p><h3>3. Audit your agent\u2019s trust boundaries</h3><p>Agentjacking works because agents trust external data sources. Map every external input your agents consume \u2014 error trackers, logs, web content, MCP servers \u2014 and verify each one has input validation. The attack surface scales with the number of external connections, not with your code\u2019s complexity.</p><h3>4. Test the SPECS Spatial Benchmark</h3><p><pre class=\"prompt\">Snap's SPECS Spatial Benchmark tests 7 categories:\ncoordinate math, transformation/perspective,\nspatial arrangement/layout, and more.\n\nRun your model against it to see how well\nit handles spatial reasoning before building\nAR/robotics/physical-world agents.</pre></p><h3>5. Read the Fable 5 \u201cfix this code\u201d saga</h3><p>Katie Moussouris\u2019s <a href=\"https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827\" target=\"_blank\" rel=\"noopener\">full account in The Register</a> and <a href=\"https://simonwillison.net/2026/jun/16/fable-5-export-controls\" target=\"_blank\" rel=\"noopener\">Simon Willison\u2019s analysis</a> are required reading. The precedent: if \u201cfix this code\u201d triggers export control, every coding model is at risk. Understand the argument so you can plan for regulatory risk to your own workflows.</p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "The \u201cfix this code\u201d precedent, and buying vs building",
+      type: "opinion",
+      html: "<div class=\"opinion-block\"><span class=\"who\">Katie Moussouris</span><p>The only outside expert to read the classified report behind the Fable 5 shutdown calls the \u201cjailbreak\u201d standard defensive security work: \u201cFix this code, plus several manual steps to generate test scripts, should never have triggered an export control.\u201d She helped negotiate the Wassenaar Arrangement cybersecurity exemptions across 42 nations (2013\u20132017) and argues the controls conflict with those exemptions. Her line: \u201cI feel like making \u201890s-style t-shirts with \u2018fix this code\u2019 on the front and \u2018this shirt is a munition\u2019 on the back.\u201d Over 300 cybersecurity leaders signed the open letter at freefable.org.</p></div><div class=\"opinion-block\"><span class=\"who\">Simon Willison</span><p>\u201cThis whole situation is such a mess. Non-technical decision-makers have been hearing that models that can \u2018craft cyber attacks\u2019 are uniquely dangerous for months. Now they look ready to ban any model that can help us secure our code.\u201d His read: the capability the government flagged \u2014 asking an AI to find, fix, and test bugs \u2014 is \u201cthe most valuable thing an AI model can do for defensive security.\u201d Removing it makes models worse at the exact task defenders need most.</p></div><div class=\"opinion-block\"><span class=\"who\">Industry on SpaceX/Cursor</span><p>SpaceX\u2019s $60B acquisition of Anysphere is the first platform-scale buy of a leading developer AI tool. The subtext: xAI lost all 11 co-founders by March 2026 and Musk acknowledged the unit \u201cwas not built right.\u201d Rather than rebuild organically, SpaceX bought market position. Cursor\u2019s $2.6B ARR, $2B venture round at $50B valuation (a16z, Thrive, Nvidia), and SpaceX\u2019s Colossus supercomputer for joint model training \u2014 this reshapes the competitive map for Claude Code, Codex, and every other coding agent. The $10B breakup fee tells you how badly SpaceX wanted this.</p></div>"
+    }
+  ],
+  sources: {
+    videos: [
+      { title: "Snap Keynote at AWE USA 2026: Making Computing More Human", url: "https://www.youtube.com/watch?v=bsqQG4iiK2Y" }
+    ],
+    articles: [
+      { title: "Agentjacking: One Fake Bug Report Hijacked a $250B Company\u2019s AI Agent \u2014 Tenet Security", url: "https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/" },
+      { title: "GLM-5.2: Built for Long-Horizon Tasks \u2014 Z.ai", url: "https://z.ai/blog/glm-5.2" },
+      { title: "Introducing the OpenAI Partner Network \u2014 OpenAI", url: "https://openai.com/index/introducing-openai-partner-network/" },
+      { title: "Predicting model behavior before release by simulating deployment \u2014 OpenAI", url: "https://openai.com/index/deployment-simulation/" },
+      { title: "Introducing LifeSciBench \u2014 OpenAI", url: "https://openai.com/index/introducing-life-sci-bench/" },
+      { title: "A near-autonomous AI chemist improves a challenging reaction \u2014 OpenAI", url: "https://openai.com/index/ai-chemist-improves-reaction/" },
+      { title: "Improving health intelligence in ChatGPT \u2014 OpenAI", url: "https://openai.com/index/improving-health-intelligence-in-chatgpt/" },
+      { title: "ChatGPT Enterprise spend controls \u2014 OpenAI", url: "https://openai.com/index/chatgpt-enterprise-spend-controls/" },
+      { title: "Anthropic opens Seoul office \u2014 Anthropic", url: "https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem" },
+      { title: "SpaceX Buys Cursor in Largest Startup Acquisition Ever at $60 Billion \u2014 Forbes", url: "https://www.forbes.com/sites/sandycarter/2026/06/16/spacex-buys-cursor-in-largest-startup-acquisition-ever-at-60-billion" },
+      { title: "SpaceX\u2019s $60 Billion Deal to Buy Cursor \u2014 WSJ", url: "https://www.wsj.com/business/spacex-agrees-to-buy-ai-coding-agent-cursor-for-60-billion-7a473340" },
+      { title: "Fable 5 Export Ban Triggered by Fix This Code Prompt \u2014 The Register", url: "https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827" },
+      { title: "The Fable 5 Export Controls Harm US Cyber Defense \u2014 Simon Willison", url: "https://simonwillison.net/2026/jun/16/fable-5-export-controls" },
+      { title: "Snap SPECS: Claude Code Meets Spatial Computing \u2014 ByteIota", url: "https://byteiota.com/snap-specs-ar-glasses-claude-code-meets-spatial-computing" },
+      { title: "Gemma 3 runs in orbit \u2014 TechCrunch", url: "https://techcrunch.com/2026/06/15/a-satellite-just-learned-to-find-things-on-own-heres-what-that-means/" }
+    ],
+    x: [],
+    notes: "X/Twitter API key not configured; no tweets retrieved. YouTube: only Snap AWE keynote fell within the window from monitored channels; AllIn, Dwarkesh, Greg Isenberg, TechWithTim, Riley Brown had no new full-episode uploads in the June 14\u201319 window. HuggingFace blog had no new posts in the window. hermes-ai.net/news had no new posts. Voice/audio: no significant releases this week. Google AI blog: DiffusionGemma coverage continued from Jun 10 but no new announcements in window."
+  }
+},
+{
   date: "2026-06-13",
   label: "June 13, 2026",
   headline: "US government pulls the plug on Fable 5 and Mythos 5 \u2014 the most dramatic AI regulatory intervention yet",
