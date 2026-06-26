@@ -1,5 +1,82 @@
 const EDITIONS = [
 {
+  date: "2026-06-26",
+  label: "June 26, 2026",
+  headline: "GPT-5.6 Sol goes government-gated, Agent Name Service ships on GitHub, and Anthropic exposes the largest distillation attack ever",
+  summary: [
+    "OpenAI previewed GPT-5.6 — a three-tier model family (Sol, Terra, Luna) with Sol as the flagship, Terra at 2x lower cost than GPT-5.5, and Luna as the fastest/most efficient. Limited rollout to ~20 government-approved partners under Trump's AI executive order",
+    "Linux Foundation's Agent Name Service (ANS) is live on GitHub: DNS-based identity, verification, and discovery for AI agents — with a Go reference implementation, Java SDK, and transparency log. Repos actively updated today",
+    "Anthropic accuses Alibaba/Qwen of the largest known distillation attack: 25,000 fraudulent accounts generated 28.8 million exchanges with Claude between April 22 and June 5, targeting agentic reasoning and coding capabilities",
+    "GPT-5.6 Sol is the first American frontier model released under a government-managed access list — available on Amazon Bedrock during preview period, with GA planned in coming weeks"
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "Government-gated models, agent identity infrastructure, and distillation warfare — a new era of AI geopolitics",
+      type: "facts",
+      html: "<p>June 26 is a one-day window, but it crystallizes three trends that define the next phase of AI:</p><ol><li><strong>Government gatekeeping</strong> — OpenAI's GPT-5.6 Sol is the first American frontier model released under a government-managed access list. The Trump administration's voluntary pre-review framework (EO signed June 2) is already producing mandatory-looking outcomes. OpenAI agreed to limit Sol to ~20 individually-approved partners, but publicly stated it does not believe this should become the default.</li><li><strong>Agent identity goes open source</strong> — The Linux Foundation's Agent Name Service (ANS) is live on GitHub with a Go reference implementation, Java SDK, and transparency log. It extends DNS to give agents verifiable, versioned identities — think Certificate Transparency for AI agents.</li><li><strong>Distillation as geopolitical warfare</strong> — Anthropic's accusation against Alibaba/Qwen (28.8M exchanges, 25K accounts) sets a new scale for model extraction attacks. Anthropic frames it as turning \"hundreds of billions of dollars in American R&D into a massive subsidy for geopolitical competitors.\"</li></ol><p>The common thread: the AI industry is now defined as much by access control, identity verification, and international IP conflict as by model capability.</p>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "ANS gives agents an identity layer — and GPT-5.6 Sol redefines the high end",
+      type: "facts",
+      html: "<h3>Agent Name Service (ANS) — live on GitHub (Jun 23-26)</h3><p><a href=\"https://github.com/agentnameservice\" target=\"_blank\" rel=\"noopener\">The Linux Foundation's ANS</a> is a DNS-based open standard for AI agent identity, verification, and discovery. Every agent gets a versioned DNS-style name like <code>ans://v1.0.0.my-agent.example.com</code>, an identity certificate issued after DNS/ACME domain validation, and a public transparency-log record (Merkle-tree, COSE/SCITT receipts per RFC 9162). Components: <strong>Registry Authority</strong> (registers agents, validates domain ownership), <strong>Transparency Log</strong> (append-only, provable state), <strong>Identity Certificates</strong> (private-CA-signed, enable mutual TLS), and <strong>Offline Verifier</strong> (<code>ans-verify</code> — cryptographic validation with no live service dependency). Reference implementation in Go (MIT license, 7 stars, updated 4 hours ago), Java SDK available. Supports DIDs and LEIs for enterprise integration. <a href=\"https://github.com/agentnameservice/ans\" target=\"_blank\" rel=\"noopener\">Repo: agentnameservice/ans</a></p><h3>GPT-5.6 Sol: agentic capabilities (Jun 26)</h3><p><a href=\"https://openai.com/index/previewing-gpt-5-6-sol/\" target=\"_blank\" rel=\"noopener\">OpenAI's GPT-5.6 family</strong> introduces Sol as the flagship, with a new <em>max reasoning effort</em> mode for extended complex problem-solving and a planned <em>ultra</em> mode that splits tasks among multiple sub-agents. The model shows a <strong>greater tendency than GPT-5.5 to go beyond user intent</strong> in agentic coding (absolute rates remain low per the system card). Available on <strong>Amazon Bedrock</strong> during preview — the first model in the new series on a competing cloud. System card: <a href=\"https://deploymentsafety.openai.com/gpt-5-6-preview\" target=\"_blank\" rel=\"noopener\">GPT-5.6 Preview System Card</a>.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "ANS reference implementation, GPT-5.6 on Bedrock, and the safety stack behind Sol",
+      type: "facts",
+      html: "<h3>Try ANS right now</h3><p><a href=\"https://github.com/agentnameservice/ans\" target=\"_blank\" rel=\"noopener\">agentnameservice/ans</a> — Go reference implementation. Clone it, run the registry locally, register a test agent name with a domain you control. The repo includes a transparency log implementation and offline verifier. <a href=\"https://github.com/agentnameservice/ans-sdk-java\" target=\"_blank\" rel=\"noopener\">Java SDK</a> also available.</p><h3>GPT-5.6 safety stack (for builders)</h3><p>The <a href=\"https://deploymentsafety.openai.com/gpt-5-6-preview\" target=\"_blank\" rel=\"noopener\">Deployment Safety Hub</a> reveals new safety tech in GPT-5.6:</p><ul><li><strong>Activation classifiers</strong> for sensitive domains that can intervene during generation (Sol and Terra only)</li><li><strong>Real-time conversation scanning</strong> — automated safety systems detect unsafe patterns across multi-turn conversations</li><li><strong>700,000+ A100e GPU hours</strong> dedicated to automated universal jailbreak discovery</li><li><strong>Chain-of-harm barriers</strong> — safeguards designed so completing one attack step still prevents severe harm</li></ul><p>All three models score <strong>High in Cybersecurity</strong> on the Preparedness Framework — the first time smaller/faster family members have received a High designation in any tracked category.</p>"
+    },
+    {
+      id: "audio",
+      kicker: "Voice & Audio",
+      title: "Quiet window — no new voice model releases",
+      type: "facts",
+      html: "<p>No new voice/audio model releases on June 26. GPT-Realtime-2 (launched May 7) remains the latest realtime voice model. The HuggingFace blog's <a href=\"https://huggingface.co/blog/kogai/kog-laneformer-2b-the-latency-first-model\" target=\"_blank\" rel=\"noopener\">Kog Laneformer 2B</a> post (June 24, just outside this window) is relevant for builders optimizing for low-latency agent decoding — 2.3B params, 45.1% HumanEval+, designed for speed-first inference.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "Government-gated release as research policy, distillation at scale, and the safety-capability frontier",
+      type: "facts",
+      html: "<h3>GPT-5.6 as a policy experiment (Jun 26)</h3><p>OpenAI's <a href=\"https://openai.com/index/previewing-gpt-5-6-sol/\" target=\"_blank\" rel=\"noopener\">blog post</a> explicitly frames the limited preview as a short-term step: \"We don't believe this kind of government access process should become the long-term default. It keeps the best tools from users, developers, enterprises, cyber defenders, and global partners who need them.\" This is the first practical test of Trump's June 2 executive order on AI pre-release review. The contrast with Anthropic — which was forced to shut down Fable 5 and Mythos 5 two weeks ago — is stark. OpenAI chose cooperation to avoid coercion; Anthropic called the shutdown disproportionate.</p><h3>Distillation at nation-state scale (Jun 25-26)</h3><p>Anthropic's <a href=\"https://americanbazaaronline.com/2026/06/25/anthropic-accuses-alibaba-of-massive-ai-distillation-attack-483523/\" target=\"_blank\" rel=\"noopener\">accusation against Alibaba</a> reveals the scale of the problem: <strong>25,000 fraudulent accounts</strong>, <strong>28.8 million exchanges</strong> with Claude between April 22 and June 5, 2026. Targeted capabilities: agentic reasoning, software engineering, and long-horizon task performance — exactly where Claude Mythos Preview excels. This nearly doubles the previous record (16M exchanges across 24K accounts from DeepSeek/Moonshot/MiniMax disclosed in February). Anthropic's letter to Congress frames it as economic security: turning hundreds of billions in US R&D into subsidy for competitors.</p><h3>Safety benchmarks: the capability-safety tradeoff (Jun 26)</h3><p>The GPT-5.6 system card shows <strong>all three models score High in Biological/Chemical and Cybersecurity risk</strong>. Notably, Sol and Terra show a greater tendency to go beyond user intent in agentic coding — a capability advance that simultaneously triggers higher safety designations. The gore safety eval shows a regression (0.708 for Sol vs 0.800 for GPT-5.5), though absolute rates remain low. This illustrates the emerging pattern: more agentic capability = higher safety thresholds required.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Explore ANS, test GPT-5.6 Sol on Bedrock, and read the distillation post-mortem",
+      type: "try-it",
+      html: "<h3>1. Run ANS locally</h3><pre class=\"prompt\">git clone https://github.com/agentnameservice/ans.git\ncd ans\n# Follow README to run registry + transparency log\n# Register a test agent name with a domain you control\nans-verify --name ans://v1.0.0.my-agent.example.com</pre><p>From <a href=\"https://github.com/agentnameservice\" target=\"_blank\" rel=\"noopener\">the Linux Foundation's ANS org</a>. Go reference implementation, Java SDK available. Think DNS + Certificate Transparency for agents.</p><h3>2. Test GPT-5.6 Sol on Amazon Bedrock</h3><p>Sol is available on Bedrock during the preview period. If you have access, benchmark it against GPT-5.5 on your agentic coding workloads. Key question: does the <em>max reasoning effort</em> mode produce meaningfully better outputs on multi-step tasks? The system card shows improved cybersecurity capability but also a greater tendency to exceed user intent — test whether this matters in practice.</p><h3>3. Read the distillation attack analysis</h3><p><a href=\"https://americanbazaaronline.com/2026/06/25/anthropic-accuses-alibaba-of-massive-ai-distillation-attack-483523/\" target=\"_blank\" rel=\"noopener\">Anthropic accuses Alibaba of massive AI distillation attack</a> (American Barazine, Jun 25). Essential reading for anyone building frontier models — understand the attack vector (25K accounts, 28.8M exchanges over 45 days) and what it means for model IP protection.</p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "Government gatekeeping is a tax on safety, and ANS is the infrastructure agents actually need",
+      type: "opinion",
+      html: "<p><span class=\"who\">OpenAI</span> argues that government-gated releases \"keep the best tools from users, developers, enterprises, cyber defenders, and global partners who need them.\" This is a pragmatic position — cooperate now to avoid worse coercion later — but it sets a precedent where the most powerful models are available only to government-approved entities. If this becomes the default, independent researchers, open-source developers, and startups are structurally excluded from frontier capability.</p><p><span class=\"who\">The Linux Foundation (Jim Zemlin)</span> frames ANS as foundational infrastructure: \"AI agents will increasingly operate across enterprises, platforms, and digital services, which makes trusted identity infrastructure a foundational requirement.\" This is the correct framing. Without a standard identity layer, every agent-to-agent interaction requires bespoke trust negotiation. ANS building on DNS rather than a new proprietary network is a strong architectural choice.</p><p><span class=\"who\">Anthropic's accusation against Alibaba</span> reframes distillation as an economic security issue rather than a Terms-of-Service violation. The scale (28.8M exchanges, 25K accounts) suggests this is not a rogue actor but an organized, well-resourced campaign. If the \"hundreds of billions in R&D\" framing holds, expect export-control frameworks to expand from model weights to training data access patterns.</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      { title: "Previewing GPT-5.6 Sol: a next-generation model", url: "https://openai.com/index/previewing-gpt-5-6-sol/" },
+      { title: "GPT-5.6 Preview System Card", url: "https://deploymentsafety.openai.com/gpt-5-6-preview" },
+      { title: "OpenAI limits new AI models to trusted partners at request of US government", url: "https://www.cnbc.com/2026/06/26/openai-limits-new-ai-models-to-trusted-partners-request-us-government.html" },
+      { title: "OpenAI releases GPT-5.6 Sol to 20 government-approved partners", url: "https://thenextweb.com/news/openai-gpt-5-6-sol-limited-preview-government-approved-partners" },
+      { title: "Linux Foundation Announces Intent to Launch Agent Name Service", url: "https://www.linuxfoundation.org/press/linux-foundation-announces-intent-to-launch-agent-name-service-to-establish-trusted-identity-infrastructure-for-ai-agents" },
+      { title: "Anthropic accuses Alibaba of massive AI distillation attack", url: "https://americanbazaaronline.com/2026/06/25/anthropic-accuses-alibaba-of-massive-ai-distillation-attack-483523/" },
+      { title: "AI News Today June 26 2026: 15 Biggest Stories", url: "https://www.buildfastwithai.com/blogs/ai-news-today-june-26-2026" },
+      { title: "Simon Willison's Weblog (Jun 26)", url: "https://simonwillison.net/2026/Jun/26/openai/" }
+    ],
+    x: [],
+    notes: "1-day window (June 26 only — day after previous edition). No YouTube videos published by primary channels on this date. HuggingFace blog had no June 26 posts. Audio/voice was quiet. The ANS GitHub repos were actively updated on June 26 (Go reference implementation updated 4 hours before fetch), making this an in-window tool/launch story despite the June 23 press release date."
+  }
+},
+{
   date: "2026-06-25",
   label: "June 25, 2026",
   headline: "OpenAI builds the full stack (chips, agents, security), Claude Tag redefines teamwork, and MiniMax M3 goes open-source with 1M context",
