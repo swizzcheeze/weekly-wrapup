@@ -1,5 +1,76 @@
 const EDITIONS = [
 {
+  date: "2026-06-27",
+  label: "June 27, 2026",
+  headline: "GPT-4.5 exits ChatGPT, Google loses four senior AI researchers to Anthropic in six days, and Patronus AI raises $50M to simulate agents in digital worlds",
+  summary: [
+    "OpenAI retired GPT-4.5 from ChatGPT today — the last GPT-4-era model is gone from the consumer interface. o3 follows August 26. API availability is unaffected.",
+    "Four senior Google AI researchers left for Anthropic and OpenAI within six days: Noam Shazeer (Gemini co-lead, Transformer co-inventor) to OpenAI on June 18; John Jumper (AlphaFold, Nobel laureate) to Anthropic on June 19; Jonas Adler & Alexander Pritzel (key Gemini contributors) to Anthropic reported June 24.",
+    "Google's Gemini 3.5 Pro is delayed to July 2026 with no new date announced — the delay coincides with the talent exodus.",
+    "Patronus AI raised a $50M Series B (led by Greenfield Partners) to build 'Digital World Models' — simulated environments for stress-testing long-horizon agents before production deployment. Revenue grew 15x.",
+    "The U.S. Defense Department announced 'Agent Network' — a program to field multi-agent architectures for battle-management with explicit human-in-loop requirements that will likely shape commercial agent reliability standards."
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "GPT-4.5 dies, Google's brain drain hits a crescendo, and agent simulation becomes a category",
+      type: "facts",
+      html: "<p>June 27 is a one-day window, but it packs three structural shifts:</p><ol><li><strong>The GPT-4 era ends in ChatGPT.</strong> OpenAI retired GPT-4.5 today, completing the consumer-side transition to the GPT-5 family. The API is unaffected — o3 remains available there until August 26 — but the default ChatGPT experience is now fully GPT-5.</li><li><strong>Google's AI talent hemorrhage is accelerating.</strong> Four senior researchers left for Anthropic and OpenAI in six days, including a Nobel laureate (John Jumper), a Transformer co-inventor (Noam Shazeer), and two key Gemini contributors (Jonas Adler, Alexander Pritzel). This is not routine churn — it represents a significant transfer of institutional knowledge to the two leading competitors.</li><li><strong>Agent simulation becomes a funded category.</strong> Patronus AI's $50M round validates the idea that agents need testing environments that mirror production complexity — not just unit tests. The 'Digital World Models' approach (replicas of real websites/systems for agent practice) is now venture-backed.</li></ol>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "Agent Network goes defense-grade, and Patronus proves the agent-testing layer",
+      type: "facts",
+      html: "<h3>U.S. Defense 'Agent Network' program (Jun 27)</h3><p>The Department of Defense announced <a href=\"https://aiagentstore.ai/ai-agent-news/this-week\" target=\"_blank\" rel=\"noopener\">Agent Network</a> — a program to field networks of AI agents for battle-management and sensor-to-shooter workflows. Key requirements: <strong>human oversight</strong>, staged testing, interoperability, and explainability. Defense procurement often sets de facto commercial standards — the reliability and interoperability specs emerging here will likely influence enterprise agent SLAs within 12-18 months.</p><h3>Patronus AI: agent testing as infrastructure (Jun 25)</h3><p><a href=\"https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/\" target=\"_blank\" rel=\"noopener\">Patronus AI</a> closed a <strong>$50 million Series B</strong> led by Greenfield Partners and unveiled Digital World Models — large-scale simulated environments that replicate real websites and internal systems for agent training and evaluation. The pitch: practice long-horizon multi-step workflows (customer escalations, enterprise software operations, research pipelines) against realistic digital twins before deploying to production. Revenue grew <strong>15x</strong> year-over-year. Founded by Anand Kannappan and Rebecca Gimmel.</p><p><a href=\"https://www.prnewswire.com/news-releases/patronus-ai-raises-50-million-series-b-and-unveils-first-digital-world-models-for-ai-agent-training-and-simulation-302811248.html\" target=\"_blank\" rel=\"noopener\">PR Newswire announcement</a></p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "GPT-4.5 sunset, Patronus Digital World Models, and the post-GPT-4 landscape",
+      type: "facts",
+      html: "<h3>GPT-4.5 retirement: what builders need to know (Jun 27)</h3><p>OpenAI's <a href=\"https://help.openai.com/en/articles/9624314-model-release-notes\" target=\"_blank\" rel=\"noopener\">model release notes</a> confirm: GPT-4.5 is retired from ChatGPT as of today. <strong>API access is unchanged</strong> — o3 also remains in the API until August 26. If you have pipelines depending on GPT-4.5 via the API, no action needed. For ChatGPT users, the model picker no longer offers any GPT-4-era option.</p><h3>Patronus Digital World Models (early access)</h3><p><a href=\"https://www.patronus.ai/\" target=\"_blank\" rel=\"noopener\">Patronus AI</a> — the Digital World Models product lets you create replicas of your actual web apps and internal systems for agent testing. The value proposition: catch failure modes (recovery behavior, edge cases, multi-step logic) that unit tests miss. The $50M round signals that enterprise buyers are willing to pay for agent testing infrastructure, not just agent frameworks.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "The Google talent transfer: what four departures mean for the model landscape",
+      type: "facts",
+      html: "<h3>Four researchers, six days, two competitors (Jun 18-24)</h3><p>The cumulative departure of four senior Google AI researchers in one week is the week's most significant structural event:</p><ul><li><strong>Noam Shazeer</strong> (Transformer co-inventor, Character.AI founder, Gemini co-lead) → <strong>OpenAI</strong>, announced June 18. Shazeer invented the architecture underlying every modern LLM. His move to OpenAI is arguably the highest-profile talent transfer in AI history.</li><li><strong>John Jumper</strong> (AlphaFold lead, 2024 Nobel laureate in Chemistry) → <strong>Anthropic</strong>, announced June 19. Taking time to recharge before joining; Anthropic has a June 30 science event.</li><li><strong>Jonas Adler & Alexander Pritzel</strong> (key Gemini model contributors) → <strong>Anthropic</strong>, reported June 24 by Bloomberg. Both viewed internally as critical to Gemini's development.</li></ul><p><a href=\"https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/\" target=\"_blank\" rel=\"noopener\">TechCrunch</a> | <a href=\"https://www.bloomberg.com/news/articles/2026-06-24/google-poised-to-lose-two-more-high-profile-ai-staffers-to-anthropic\" target=\"_blank\" rel=\"noopener\">Bloomberg</a></p><h3>Gemini 3.5 Pro delayed to July (Jun 27)</h3><p><a href=\"https://blog.getbind.co/gemini-3-5-pro-slips-to-july-and-four-senior-google-researchers-just-left-for-anthropic/\" target=\"_blank\" rel=\"noopener\">Gemini 3.5 Pro</a> — the next model in Google's consumer series — is delayed past its original June target with no new date announced. Google is simultaneously expanding its AI coding strike team while losing the researchers who would ship the next model. The delay is officially a scheduling issue, but the talent exodus is an obvious compounding factor.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Agent simulation testing and auditing your GPT-4 dependency surface",
+      type: "try-it",
+      html: "<h3>1. Audit your GPT-4.5 dependency surface</h3><p>GPT-4.5 is gone from ChatGPT today. If you have any workflows, prompts, or fine-tunes that specifically target GPT-4.5, migrate them now. For API users: no changes needed yet, but note that o3 retires August 26 — start planning your migration path.</p><pre class=\"prompt\"># Quick audit: search your codebase and prompt libraries\n# for GPT-4.5 references\ngrep -r \"gpt-4.5\" . --include=\"*.py\" --include=\"*.json\" --include=\"*.md\" --include=\"*.yaml\"\necho \"---\"\necho \"If any results appear, update to GPT-5.5 or GPT-5.4 Thinking\"</pre><h3>2. Try agent simulation testing with Patronus-style approach</h3><p>You don't need Patronus specifically — the pattern is reproducible: (1) Build a sandboxed replica of your web app or internal tool, (2) Define 10-20 realistic multi-step tasks your agent should handle, (3) Run the agent against the replica and log failure modes, (4) Focus evaluation on recovery behavior (does the agent recover from a mid-task error?) and edge cases (what happens with unexpected input at step 3 of 5?). The key insight from Patronus: <strong>unit tests for agents are insufficient — you need environment-level simulation</strong>.</p><h3>3. Map your architecture to Defense Department agent requirements</h3><p>Even if you're not in defense, the Agent Network program's requirements (interoperability, explainability, human overrides, staged testing) are a useful maturity model. Audit your agent stack against these four criteria. If you're missing any, prioritize human-in-loop controls — that's the one that matters most for production deployments.</p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "The talent war just changed the competitive landscape",
+      type: "opinion",
+      html: "<p><em>The following are arguments and interpretations, not verified facts.</em></p><p><span class=\"who\">Cezary (AI Weekly for Leaders)</span> argues that AI is no longer a standalone technology story — it is now interwoven with regulation, capital markets, energy infrastructure, and geopolitics. The U.S. proposing stricter incident-reporting obligations for AI developers while Europe reins in cloud providers means compliance is becoming a first-order concern for agent builders, not an afterthought.</p><p><span class=\"who\">Industry analysts</span> read the Google researcher exodus as a signal that the talent war has entered a new phase: researchers are no longer moving between labs for compensation — they're moving based on <em>which lab can ship the most capable models fastest</em>. Anthropic's ability to absorb four top Google researchers in one week suggests it's winning that race in the talent market, regardless of current model rankings.</p><p><span class=\"who\">OpenAI's IPO delay</span> (NYT, June 25) reflects a pragmatic read: the public markets may not reward a $1T valuation without a full year of GPT-5-era revenue data. Delaying to 2027 gives OpenAI time to demonstrate monetization of agentic products, not just chat subscriptions. The risk: Anthropic, now armed with Google's top researchers, may close the capability gap before OpenAI's IPO window opens.</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      { title: "AI News June 27 2026 — White House Blocks GPT-5.6", url: "https://aitoolsrecap.com/Blog/ai-news-june-27-2026" },
+      { title: "AI researchers continue to leave Google for its rivals", url: "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" },
+      { title: "Patronus AI lands $50M to build 'digital worlds' that stress-test AI agents", url: "https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/" },
+      { title: "OpenAI Model Release Notes (GPT-4.5 retirement)", url: "https://help.openai.com/en/articles/9624314-model-release-notes" },
+      { title: "Nobel laureate John Jumper to leave Google DeepMind for Anthropic", url: "https://www.reuters.com/technology/us-scientist-john-jumper-leave-google-deepmind-anthropic-2026-06-19/" },
+      { title: "OpenAI leans toward waiting until 2027 for IPO", url: "https://www.bloomberg.com/news/articles/2026-06-25/openai-leans-toward-waiting-until-2027-for-ipo-ny-times-says" },
+      { title: "Gemini 3.5 Pro Delayed to July 2026", url: "https://blog.getbind.co/gemini-3-5-pro-slips-to-july-and-four-senior-google-researchers-just-left-for-anthropic/" },
+      { title: "Daily AI Agent News — Last 7 Days", url: "https://aiagentstore.ai/ai-agent-news/this-week" }
+    ],
+    x: [],
+    notes: "One-day window (June 27). No YouTube transcripts fetched — no major video releases on this single day. The GPT-4.5 retirement, Google researcher exodus culmination, and Patronus AI funding are the dominant stories. OpenAI IPO delay (reported June 25) included as context."
+  }
+},
+{
   date: "2026-06-26",
   label: "June 26, 2026",
   headline: "GPT-5.6 Sol goes government-gated, Agent Name Service ships on GitHub, and Anthropic exposes the largest distillation attack ever",
