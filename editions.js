@@ -1,5 +1,102 @@
 const EDITIONS = [
 {
+  date: "2026-06-28",
+  label: "June 28, 2026",
+  headline: "OpenAI previews GPT-5.6 Sol with subagent-powered 'ultra' mode - three-tier pricing undercuts GPT-5.5 from the bottom",
+  summary: [
+    "GPT-5.6 family (Sol/Terra/Luna) debuts. Sol matches GPT-5.5 at $5/$30 per 1M tokens; Terra at $2.50/$15; Luna at $1/$6.",
+    "New ultra mode leverages subagents for complex multi-step work. Terminal-Bench 2.1 Sol Ultra at 91.9%, ahead of Claude Mythos 5.",
+    "OpenAI formally frames agents as the product category with its 'How agents are transforming work' essay.",
+    "VLX-Flow paper proposes continuous video understanding for real-time multimodal interaction."
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "GPT-5.6 Sol launches with subagent mode, Luna undercuts Chinese open-weight models, and video understanding goes streaming",
+      type: "facts",
+      html: "<p>June 27 was the day after a massive week, but two items landed inside it that reshape the next quarter:</p><ol><li><strong>OpenAI released GPT-5.6 in three tiers.</strong> Sol matches GPT-5.5's $5/$30 per 1M token pricing while adding the new ultra mode that distills work across subagents. Terra at $2.50/$15 is half of GPT-5.5. Luna at $1/$6 undercuts every Chinese open-weight competitor.</li><li><strong>OpenAI is staking its narrative on agents.</strong> A lengthy essay on 'How agents are transforming work' (Jun 25) accompanied the model launch. The naming system (Sol/Terra/Luna) uses durable tier names that can advance independently.</li><li><strong>VLX-Flow solves the streaming video problem.</strong> Instead of waiting for a query then processing the full history, it maintains continuously updated internal state across streaming chunks.</li></ol>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "GPT-5.6 introduces ultra mode - subagents as a first-class model capability",
+      type: "facts",
+      html: "<h3>GPT-5.6 ultra mode: subagents baked into inference (Jun 26)</h3><p><a href=\"https://openai.com/index/previewing-gpt-5-6-sol/\" target=\"_blank\" rel=\"noopener\">OpenAI's GPT-5.6 preview</a> introduces a new inference mode that goes beyond single-agent capability by <strong>leveraging subagents to accelerate complex work</strong>. This differs from frameworks (LangGraph, CrewAI, AutoGen) where coordination happens outside the model.</p><p><strong>Terminal-Bench 2.1:</strong> Sol Ultra scores 91.9%, ahead of Claude Mythos 5. Standard Sol scores 72.7%.</p><h3>New reasoning controls</h3><ul><li><strong>max reasoning effort:</strong> more compute for hard problems</li><li><strong>ultra mode:</strong> subagent-based parallel processing for multi-step tasks</li></ul><h3>Government-vetted preview</h3><p>Limited to approximately 20 government-vetted partners. Broader access promised in coming weeks with no calendar date.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "GPT-5.6 pricing vs. the competitive landscape",
+      type: "facts",
+      html: "<h3>GPT-5.6 pricing vs. major models (per 1M tokens)</h3><table><thead><tr><th>Model</th><th>Input</th><th>Output</th><th>Notes</th></tr></thead><tbody><tr><td>GPT-5.6 Sol</td><td style=\"text-align:right\">$5.00</td><td style=\"text-align:right\">$30.00</td><td style=\"color:#58d5ff\">same</td></tr><tr><td>GPT-5.6 Terra</td><td style=\"text-align:right\">$2.50</td><td style=\"text-align:right\">$15.00</td><td style=\"color:#58d5ff\">half</td></tr><tr><td>GPT-5.6 Luna</td><td style=\"text-align:right\">$1.00</td><td style=\"text-align:right\">$6.00</td><td style=\"color:#58d5ff\">lowest</td></tr><tr><td>Claude Opus 4.8</td><td style=\"text-align:right\">$5.00</td><td style=\"text-align:right\">$25.00</td><td>comp.</td></tr><tr><td>DeepSeek V4-Pro</td><td style=\"text-align:right\">$0.44</td><td style=\"text-align:right\">$0.87</td><td style=\"color:#f0883e\">open-weight</td></tr><tr><td>Gemini 3.5 Flash</td><td style=\"text-align:right\">$1.50</td><td style=\"text-align:right\">$9.00</td><td style=\"color:#f0883e\">cheaper</td></tr></tbody></table>"
+    },
+    {
+      id: "audio",
+      kicker: "Voice & Audio",
+      title: "Quiet window - nothing notable in voice/audio",
+      type: "facts",
+      html: "<p>No new voice/audio model releases, STT/TTS improvements, or speech-to-speech developments in this window.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research",
+      title: "VLX-Flow: continuous video understanding for real-time interaction",
+      type: "facts",
+      html: "<h3>VLX-Flow paper (Jun 27, Om AI Lab)</h3><p><a href=\"https://huggingface.co/blog/omlab/vlx-flow\" target=\"_blank\" rel=\"noopener\">VLX-Flow</a> solves continuous understanding of a live video stream. Instead of processing the entire history on each query:</p><ul><li><strong>Processes streaming chunks</strong> in temporal order, updating internal state incrementally</li><li><strong>Compresses into state</strong> rather than accumulating raw history (linear attention, not quadratic)</li><li><strong>Answers from accumulated state</strong> - questions answered from maintained context</li></ul><p><strong>Why builders should care:</strong> Always-on, always-updating. Memory cost stays constant as stream length grows.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Three things to try right now",
+      type: "try-it",
+      html: "<h3>1. Evaluate GPT-5.6 Sol for your coding workload</h3><p>Limited preview - sign up through OpenAI platform. Test with reasoning effort max on hardest agentic tasks.</p><h3>2. Experiment with ultra mode</h3><p>Designed for 5+ sequential step tasks. Terminal-Bench jumps from 72.7% to 91.9%. Try on refactoring, multi-file changes, debugging chains.</p><h3>3. Explore streaming video understanding</h3><p>Prototype VLX-Flow architecture: webcam feed to a model maintaining incremental state. Uses: meeting summarization, hands-free robot interaction.</p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "OpenAI is the first lab to name the agent transition out loud",
+      type: "opinion",
+      html: "<p style=\"margin-bottom:1em\"><em style=\"color:#818d9e\">These are arguments and interpretations, not verified facts.</em></p><p><span class=\"who\">OpenAI product narrative</span> argues that agents have graduated from feature to product category. The GPT-5.6 launch with Sol/Terra/Luna tiering executes that thesis.</p><p><span class=\"who\">VentureBeat analysis</span> notes this is the second US frontier-model intervention in June (after Fable 5 export ban on Jun 12).</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      {
+        title: "Previewing GPT-5.6 Sol: a next-generation model",
+        url: "https://openai.com/index/previewing-gpt-5-6-sol/"
+      },
+      {
+        title: "OpenAI unveils GPT-5.6 Sol, Terra, and Luna - limited preview",
+        url: "https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov"
+      },
+      {
+        title: "OpenAI Previews GPT-5.6 Sol With Restricted Access",
+        url: "https://thehackernews.com/2026/06/openai-limits-gpt-56-rollout-as-sol.html"
+      },
+      {
+        title: "When Will GPT-5.6 Sol, Terra, and Luna Be Available to Everyone?",
+        url: "https://explainx.ai/blog/when-will-gpt-5-6-sol-terra-luna-be-available-everyone-2026"
+      },
+      {
+        title: "AI News Today June 27 2026: 15 Biggest Stories",
+        url: "https://www.buildfastwithai.com/blogs/ai-news-today-june-27-2026"
+      },
+      {
+        title: "VLX-Flow: Continuous Video Understanding for Real-Time Multimodal Interaction",
+        url: "https://huggingface.co/blog/omlab/vlx-flow"
+      },
+      {
+        title: "How agents are transforming work",
+        url: "https://openai.com/index/how-agents-are-transforming-work/"
+      }
+    ],
+    x: [],
+    notes: "Window is 1 day (June 27-28). YouTube channels had no new uploads. Anthropic newsroom quiet. GPT-5.6 preview dropped June 26 evening. VLX-Flow published June 27 on HuggingFace."
+  }
+},
+{
   date: "2026-06-27",
   label: "June 27, 2026",
   headline: "GPT-4.5 exits ChatGPT, Google loses four senior AI researchers to Anthropic in six days, and Patronus AI raises $50M to simulate agents in digital worlds",
