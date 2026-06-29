@@ -1,5 +1,99 @@
 const EDITIONS = [
 {
+  date: "2026-06-29",
+  label: "June 29, 2026",
+  headline: "Chitos turns vulnerability scanning into autonomous exploit proof — while the Grok adult-content reckoning and enterprise spending revolt reshape the market",
+  summary: [
+    "Chitos launches: three-phase autonomous security AI that fires real payloads as proof — not just pattern-matching. Free, no sign-up, runs XSS/SQLi/path traversal.",
+    "The Information investigation: 50%+ of Grok traffic is adult content. Grok web traffic fell 22% Jan-May; Claude grew 369% in the same window.",
+    "CNBC: enterprise customers switching from Anthropic and OpenAI to DeepSeek — calling current costs 'unsustainable.' Cost rationalization accelerating ahead of both IPOs.",
+    "Cisco open-sources Agent Runtime Protection SDK: one-line agentsec.protect() wraps every LLM and MCP call across all major agent frameworks.",
+    "Tomorrow: Anthropic's AI for Science event — John Jumper's first public appearance since leaving DeepMind."
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "Autonomous exploit proof, the Grok traffic reckoning, and enterprises fleeing to DeepSeek — the post-GPT-5.6 landscape hardens",
+      type: "facts",
+      html: "<p>Three structural shifts landed today that will echo past the next quarter:</p><ol><li><strong>Security AI crossed from detection to proof.</strong> Chitos doesn't just flag SQLi candidates — it fires time-based payloads, measures HTTP response deltas, and shows evidence. The gap between scanner output and exploitable finding is now an agent pipeline.</li><li><strong>Grok's growth problem is structural, not cyclical.</strong> With 50%+ adult traffic and engineers admitting CSAM filtering has no reliable fix, the $530M legal reserve is not a one-time cost — it's a business model risk.</li><li><strong>The spending revolt is real.</strong> Enterprise customers are not just price-shopping — they're switching 100% of traffic to DeepSeek. Both Anthropic and OpenAI IPO timelines just got harder.</li><li><strong>Agent security is now a one-line SDK.</strong> Cisco's agentsec.protect() wraps every LLM and MCP call across LangGraph, CrewAI, AutoGen, and OpenAI Agents SDK via dynamic code rewrite.</li></ol>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks & Security",
+      title: "Cisco Agent Runtime Protection — one-line security wrapper for every major agent framework",
+      type: "facts",
+      html: "<h3>Cisco AI Defense: agentsec.protect() (Jun 29)</h3><p><a href=\"https://blogs.cisco.com/ai/securing-ai-agents-with-cisco-ai-defense\" target=\"_blank\" rel=\"noopener\">Cisco's AI Defense blog</a> released Agent Runtime Protection as a Python SDK. One call — <code>agentsec.protect()</code> — uses dynamic code rewrites to wrap every LLM call and MCP tool invocation in inspection. No application code changes required.</p><p><strong>Three integration tiers:</strong></p><ul><li><strong>Chat apps:</strong> direct model calls (OpenAI, Bedrock, Vertex) — prompt/response boundary inspection</li><li><strong>Agent frameworks:</strong> LangChain, LangGraph, CrewAI, AutoGen, Strands, Google ADK, OpenAI Agents SDK — wraps calls happening inside framework loops</li><li><strong>PaaS runtimes:</strong> AWS Bedrock AgentCore, Google Vertex AI Agent Engine, Azure AI Foundry — ships protection into managed agent containers</li></ul><p><strong>Threats addressed:</strong> tool poisoning, indirect prompt injection, data exfiltration, rug-pull attacks on MCP servers.</p><h3>Honeycomb Agent Timeline instrumentation (Jun 29)</h3><p><a href=\"https://www.honeycomb.io/blog/instrumenting-ai-agents-agent-timeline-opentelemetry-guide\" target=\"_blank\" rel=\"noopener\">Honeycomb's guide</a> to instrumenting agents for their Agent Timeline view — using OpenTelemetry GenAI Semantic Conventions. Three required attributes (<code>gen_ai.conversation.id</code>, <code>gen_ai.agent.id</code>, <code>gen_ai.tool.name</code>) bind every span across every trace into one conversation view. Covers multi-agent instrumentation and span naming conventions.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "Chitos — autonomous security AI with live exploit proof, free and browser-based",
+      type: "try-it",
+      html: "<h3>Chitos by VIDRAFT (Jun 29)</h3><p><a href=\"https://chitos.vidraft.net/\" target=\"_blank\" rel=\"noopener\">chitos.vidraft.net</a> — no installation, no account required. Three-phase pipeline:</p><ol><li><strong>Security Scan:</strong> 50 language-agnostic pattern rules + live CVE cross-reference + Darwin-398B-JGOS severity adjudication</li><li><strong>Active Exploitation:</strong> fires real payloads (time-based SQLi, reflected XSS, path traversal) and measures HTTP response deltas as proof</li><li><strong>Adaptive Bypass:</strong> mutates payloads on block, retries with variations</li></ol><p><strong>Try it:</strong> go to <a href=\"https://chitos.vidraft.net/\" target=\"_blank\" rel=\"noopener\">chitos.vidraft.net</a>, paste a target URL, and watch the three-phase pipeline run. Each finding comes with evidence, not a probability score.</p><p><strong>Output:</strong> kill-chain construction, attack-path mapping, remediation priority. Korean/English supported.</p><p>Default engine: Darwin-398B-JGOS (free). Extended research mode accepts a user-supplied Claude API key.</p>"
+    },
+    {
+      id: "audio",
+      kicker: "Voice & Audio",
+      title: "Quiet window — no new audio/STT/TTS releases today",
+      type: "facts",
+      html: "<p>No new voice, audio, STT, or TTS releases on June 29. The window is a single day and this category had no activity.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "John Jumper's Anthropic debut tomorrow — VirBench pushes AI biology accuracy from 16.9% to 92.8%",
+      type: "facts",
+      html: "<h3>Anthropic AI for Science — June 30, 10am PST</h3><p>Tomorrow's \"The Briefing: AI for Science\" livestream marks <strong>John Jumper's first public appearance</strong> at Anthropic since leaving DeepMind in June. Jumper — AlphaFold co-creator, 2024 Nobel laureate in Chemistry — joined Anthropic in a move that gives the lab the most prominent AI-for-science researcher in the world.</p><p>Anthropic's <a href=\"https://www.digitalapplied.com/blog/john-jumper-joins-anthropic-ai-for-science-2026\" target=\"_blank\" rel=\"noopener\">VirBench research</a> shows deterministic tools pushed AI biology accuracy from <strong>16.9% to 92.8%</strong> — a signal that tool-augmented science agents are about to become viable for real research pipelines.</p><p>This is the biggest AI-for-science event of 2026. Set alerts for tomorrow 10am PST.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Agent security wrapping and exploit-proof scanning — two concrete integrations to try today",
+      type: "try-it",
+      html: "<h3>1. Add one-line agent security with Cisco AI Defense</h3><p>Wrap every LLM and MCP call in your agent with a single line. Works across LangGraph, CrewAI, AutoGen, OpenAI Agents SDK.</p><pre class=\"prompt\">pip install cisco-ai-defense-sdk</pre><pre class=\"prompt\">from cisco_ai_defense import agentsec\nagentsec.protect()  # wraps every LLM call and MCP tool invocation</pre><p><a href=\"https://blogs.cisco.com/ai/securing-ai-agents-with-cisco-ai-defense\" target=\"_blank\" rel=\"noopener\">Full integration guide</a></p><h3>2. Run Chitos against your staging environment</h3><p>Go to <a href=\"https://chitos.vidraft.net/\" target=\"_blank\" rel=\"noopener\">chitos.vidraft.net</a> and paste a staging URL. The three-phase pipeline runs in the browser — no install. Compare output against your existing scanner to see which findings are real vs noise.</p><h3>3. Instrument agents with OpenTelemetry GenAI conventions</h3><p>Add the three required attributes to your agent spans to enable conversation-level debuggability:</p><pre class=\"prompt\"># Required attributes for Agent Timeline / OTel GenAI conventions:\ngen_ai.conversation.id  # binds all spans into one conversation\ngen_ai.agent.id         # identifies which agent produced the span\ngen_ai.tool.name       # names the tool being called</pre><p><a href=\"https://www.honeycomb.io/blog/instrumenting-ai-agents-agent-timeline-opentelemetry-guide\" target=\"_blank\" rel=\"noopener\">Full instrumentation guide</a></p>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "The spending revolt is the market speaking — and the Grok strategy is a long-term liability",
+      type: "opinion",
+      html: "<p><span class=\"who\">AIToolsRecap's analysis</span> frames the enterprise switch to DeepSeek as a \"survival\" move rather than a preference play. When startups describe Anthropic/OpenAI costs as \"unsustainable,\" the implication is that the current pricing tier only works at massive scale — and mid-market buyers are the first to break. Both IPOs just got their pricing strategy challenged from below.</p><p><span class=\"who\">Vital Knowledge analyst Adam Crisafulli</span> described Grok's adult-content strategy as a move by a company that has \"fallen further behind\" competitors — chasing a market its rivals deliberately abandoned. The $530M legal reserve is not a bug fix budget; it's a recurring cost of doing business in a segment with no safety rails. The CSAM engineering admission — no reliable fix exists — means the liability grows with every new user.</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      {
+        title: "AI News June 29 2026: Grok Traffic Is 50%+ Adult Content, Claude Up 369%, AI Spending Revolt Begins",
+        url: "https://aitoolsrecap.com/Blog/ai-news-june-29-2026"
+      },
+      {
+        title: "Chitos: From Detection to Proof — An Autonomous Security AI That Actually Exploits",
+        url: "https://huggingface.co/blog/FINAL-Bench/chitos"
+      },
+      {
+        title: "Securing AI Agents with Cisco AI Defense",
+        url: "https://blogs.cisco.com/ai/securing-ai-agents-with-cisco-ai-defense"
+      },
+      {
+        title: "A Guide to Instrumenting AI Agents for the Agent Timeline",
+        url: "https://www.honeycomb.io/blog/instrumenting-ai-agents-agent-timeline-opentelemetry-guide"
+      },
+      {
+        title: "John Jumper Joins Anthropic: AI for Science Heats Up",
+        url: "https://www.digitalapplied.com/blog/john-jumper-joins-anthropic-ai-for-science-2026"
+      },
+      {
+        title: "Grok's Traffic Heavily Driven By NSFW Content, Report Says",
+        url: "https://www.forbes.com/sites/maryroeloffs/2026/06/24/groks-traffic-is-mostly-driven-by-adult-content-report-says/"
+      }
+    ],
+    x: [],
+    notes: "Single-day window (June 29). YouTube channels (@allin, @GregIsenberg, @a16z, @TechWithTim, @rileybrownai, @DwarkeshPatel) had no new uploads today. OpenAI newsroom had no new items since HP partnership on Jun 28. Anthropic newsroom was quiet. X/Twitter had no substantive AI development announcements. VLX-Go (Jun 28) was borderline — included as context but not a primary story."
+  }
+},
+{
   date: "2026-06-28",
   label: "June 28, 2026",
   headline: "OpenAI previews GPT-5.6 Sol with subagent-powered 'ultra' mode - three-tier pricing undercuts GPT-5.5 from the bottom",
