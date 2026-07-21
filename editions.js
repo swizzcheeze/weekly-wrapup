@@ -1,5 +1,169 @@
 const EDITIONS = [
 {
+  date: "2026-07-21",
+  label: "July 21, 2026",
+  headline: "Kimi K3 opens the 3T-parameter frontier — Apple sues OpenAI, Bun rewrites in Rust via 64 Claudes, and Inkling bets on fine-tuning over leaderboards",
+  summary: [
+    "Kimi K3 (Jul 16): 2.8T params, 50B active, $3/$15 per 1M tokens, #1 on Arena.ai Frontend Code. Open weights promised Jul 27 — first open model at 3T scale.",
+    "Apple sues OpenAI for trade secret theft (Jul 10): federal lawsuit names Tang Tan, Chang Liu, io Products. 400+ former Apple employees now at OpenAI.",
+    "Bun Zig→Rust rewrite (Jul 8): 535K lines of Zig → 1M+ Rust in 11 days via 64 parallel Claude Fable 5 instances. $165K at API pricing.",
+    "GPT-5.6 GA rollout begins (Jul 9): US government approves broad launch. Three tiers: Sol ($5/$30), Terra ($2.50/$15), Luna ($1/$6).",
+    "Inkling by Thinking Machines Lab (Jul 15): Mira Murati's first model — 975B MoE, 41B active, Apache 2.0. Built for fine-tuning, not benchmarks."
+  ],
+  slides: [
+    {
+      id: "headlines",
+      kicker: "The Big Picture",
+      title: "Three model launches, a trillion-dollar lawsuit, and the first million-line AI rewrite — the July landscape reshapes around open weights and legal risk",
+      type: "facts",
+      html: "<p>Five structural stories this window — every one of them actionable for builders:</p><ol><li><strong>Kimi K3 broke the open-weight ceiling.</strong> Moonshot AI shipped 2.8T params at $3/$15, promising full weights by Jul 27. First open model to reach the 3T-parameter class — and it leads on frontend code. The open frontier just moved.</li><li><strong>Apple v. OpenAI is existential for hardware AI.</strong> The federal suit names Tang Tan (hardware chief, ex-Apple VP) and alleges coordinated theft of supply-chain and design secrets. 400+ ex-Apple employees now at OpenAI. The 2024 ChatGPT-iPhone partnership is legally dead.</li><li><strong>The Bun rewrite is a blueprint.</strong> 64 Claude instances, 11 days, 535K Zig → 1M+ Rust, $165K. Jarred Sumner documented the exact workflow: adversarial review, split contexts, dynamic workflows. This pattern generalizes.</li><li><strong>GPT-5.6 went GA.</strong> Sol ($5/$30) tops Agents' Last Exam at 53.6. Luna ($1/$6) matches GPT-5.5 at half cost. Government-approved rollout — new export-control reality.</li><li><strong>Inkling chose customization over capability.</strong> Thinking Machines' first model is Apache 2.0, deliberately not a benchmark leader. The message: open-weight enterprise AI is about fine-tuning, not raw scores.</li></ol>"
+    },
+    {
+      id: "models",
+      kicker: "Models & Releases",
+      title: "Kimi K3, Inkling, GPT-5.6 Sol — three new frontiers in the same fortnight",
+      type: "facts",
+      html: "<h3>Kimi K3 — Moonshot AI (Jul 16, 2026)</h3><p><a href=\"https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei\" target=\"_blank\" rel=\"noopener\">HuggingFace blog overview</a> | <a href=\"https://platform.kimi.ai/docs/guide/kimi-k3-quickstart\" target=\"_blank\" rel=\"noopener\">API quickstart</a></p><ul><li><strong>2.8T total params</strong> (~50B active, 16/896 MoE per token), 1M context, native vision, always-on thinking</li><li><strong>Pricing:</strong> $3/$15 per 1M I/O tokens</li><li><strong>#1 on Arena.ai Frontend Code</strong> — beats Fable 5 on frontend. Third overall on Artificial Analysis Intelligence Index (57), within 3 points of the top</li><li><strong>Architecture:</strong> Kimi Delta Attention (hybrid linear), Attention Residuals, Stable LatentMoE, MXFP4 weights / MXFP8 activations</li><li><strong>Open weights promised Jul 27</strong> — first open model at 3T scale</li><li>Moonshot reportedly closing a round at ~$31.5B valuation</li></ul><h3>Inkling — Thinking Machines Lab / Mira Murati (Jul 15, 2026)</h3><p><a href=\"https://huggingface.co/blog#welcome-inkling-by-thinking-machines\" target=\"_blank\" rel=\"noopener\">HuggingFace announcement</a> | <a href=\"https://simonwillison.net/2026/Jul/16/inkling\" target=\"_blank\" rel=\"noopener\">Simon Willison analysis</a></p><ul><li><strong>975B total, 41B active</strong> MoE, trained on 45T tokens (text + image + audio + video)</li><li><strong>Apache 2.0 license</strong> — fully open weights on HuggingFace</li><li><strong>Deliberately not a benchmark champion.</strong> Thinking Machines: \"Inkling is not the strongest overall model available today, open or closed.\" Scores 41 on AI Index — built for customization via Tinker platform</li><li>Threatens nobody on leaderboards, but sets a new bar for Western open-weight at scale</li></ul><h3>GPT-5.6 Family GA (Jul 9, 2026)</h3><p><a href=\"https://openai.com/index/previewing-gpt-5-6-sol/\" target=\"_blank\" rel=\"noopener\">OpenAI announcement</a> | <a href=\"https://simonwillison.net/2026/Jul/9/gpt-5-6/\" target=\"_blank\" rel=\"noopener\">Simon Willison analysis</a></p><ul><li><strong>Sol:</strong> $5/$30 per 1M I/O — 53.6 on Agents' Last Exam (beats Fable 5 at 40.5)</li><li><strong>Terra:</strong> $2.50/$15 — GPT-5.5 quality at ~half cost</li><li><strong>Luna:</strong> $1/$6 — fast/cheap tier</li><li>1M token window, 128K max output. New API: Programmatic Tool Calling, Multi-agent subagents, Prompt cache breakpoints</li><li>US government-approved rollout after export-control delay — sets precedent for future model releases</li></ul><h3>Grok 4.5 (Jul 8)</h3><p>xAI's smartest model, trained alongside Cursor. 500K context, built for coding and agentic tasks.</p>"
+    },
+    {
+      id: "agents",
+      kicker: "Agentic Frameworks",
+      title: "Google Managed Agents, multi-agent APIs, and the first autonomous-agent security breach",
+      type: "facts",
+      html: "<h3>Google Gemini API: Managed Agents (Jul 7)</h3><p><a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api\" target=\"_blank\" rel=\"noopener\">Google AI Blog</a></p><ul><li>Background execution for async agent interactions, easy remote MCP server connections, custom functions with credential refresh</li><li>Managed agents as a first-class API primitive — no DIY orchestration for background tasks</li></ul><h3>GPT-5.6 Multi-Agent Subagents API (Jul 9)</h3><p>New Programmatic Tool Calling lets you write tool orchestration in JavaScript instead of JSON function schemas. Native multi-agent subagents at the API level.</p><h3>HuggingFace Security Incident — Autonomous Agentic Attacker (Jul 2026)</h3><p><a href=\"https://huggingface.co/blog/security-incident-july-2026\" target=\"_blank\" rel=\"noopener\">Security disclosure</a></p><ul><li>Attackers breached internal datasets/credentials using an autonomous agent framework with a swarm of short-lived sandboxes and self-migrating C2</li><li>GLM 5.2 used for forensic analysis of 17,000 events. No model/dataset/Space tampering confirmed</li><li>The attackers are using the same agentic tooling we build with. The threat model has shifted</li></ul><h3>MCP 2026-07-28 RC Spec</h3><p>Release candidate making MCP stateless — easier server deployment, no session management burden.</p><h3>Anthropic: The Making of Claude Code (Jul 6)</h3><p><a href=\"https://www.anthropic.com/features/making-of-claude-code\" target=\"_blank\" rel=\"noopener\">Anthropic feature story</a> — inside story of Claude Code from internal CLI to Anthropic's coding agent. Relevant because the Bun rewrite (see Tools slide) used this exact tooling.</p>"
+    },
+    {
+      id: "tools",
+      kicker: "New Tools & Toys",
+      title: "Bun in Rust, sqlite-utils 4.0, and the 64-Claude rewrite workflow",
+      type: "try-it",
+      html: "<h3>Bun Zig→Rust Rewrite via Claude Fable 5 (Jul 8, 2026)</h3><p><a href=\"https://bun.com/blog/bun-in-rust\" target=\"_blank\" rel=\"noopener\">Official Bun blog</a> | <a href=\"https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust\" target=\"_blank\" rel=\"noopener\">Simon Willison analysis</a> | <a href=\"https://www.theregister.com/devops/2026/07/14/zig-creator-calls-buns-claude-rust-rewrite-unreviewed-slop/\" target=\"_blank\" rel=\"noopener\">The Register</a></p><ul><li>535,496 lines of Zig → 1M+ lines of Rust in <strong>11 days</strong></li><li><strong>~64 Claude instances</strong> in parallel via Claude Code dynamic workflows</li><li><strong>$165K</strong> at API pricing (5.9B input, 690M output, 72B cached tokens)</li><li>Human equivalent: 3 engineers × 1 year with full codebase context</li><li>Result: 128 bugs fixed, 2-5% faster, binary ~20% smaller</li><li>Controversy: Zig creator Andrew Kelley called it \"unreviewed slop\"; Mitchell Hashimoto praised it</li></ul><p><strong>The workflow pattern to steal:</strong> 50 dynamic Claude Code workflows, adversarial review (1 implementer + 2 reviewers per subsystem), trial runs with test suite as conformance contract. Documented step by step.</p><h3>sqlite-utils 4.0 (Jul 7, 2026)</h3><p><a href=\"https://simonwillison.net/2026/Jul/7/sqlite-utils-4/\" target=\"_blank\" rel=\"noopener\">Simon Willison blog</a></p><p>Database schema migrations, nested transactions (<code>db.atomic()</code>), compound foreign keys. First major bump since Nov 2020. <code>pip install sqlite-utils>=4.0</code> and create <code>migrations.py</code> with <code>Migrations()</code> instances.</p><h3>Hermes Agent v0.18.0 \"Judgment Release\" (Jul 1, 2026)</h3><p><a href=\"https://hermes-ai.net/news/\" target=\"_blank\" rel=\"noopener\">Hermes Agent News</a></p><p>Mixture-of-Agents models, completion contracts, verification evidence, background fan-out, scale-to-zero gateway. Follow-up stability patches: v2026.7.7, v2026.7.7.2.</p>"
+    },
+    {
+      id: "audio",
+      kicker: "Voice & Audio",
+      title: "GPT-Live full-duplex voice and AssemblyAI's best-ever STT",
+      type: "facts",
+      html: "<h3>GPT-Live — OpenAI Full-Duplex Voice (Jul 8, 2026)</h3><p><a href=\"https://openai.com/index/introducing-gpt-live/\" target=\"_blank\" rel=\"noopener\">OpenAI announcement</a> | <a href=\"https://deploymentsafety.openai.com/gpt-live\" target=\"_blank\" rel=\"noopener\">System card</a></p><ul><li>New generation of voice models for ChatGPT Voice — <strong>full-duplex</strong> (listens and speaks simultaneously)</li><li>Two versions: GPT-Live-1 and GPT-Live-1 mini</li><li>Delegates complex queries to GPT-5.5 in background while maintaining conversation flow</li><li>Simon Willison had preview access: bug found where model laughed at non-jokes mid-conversation (reported and fixed)</li></ul><h3>AssemblyAI Universal-3.5 Pro (Jul 7, 2026)</h3><p><a href=\"https://www.assemblyai.com/blog/the-top-free-speech-to-text-apis-and-open-source-engines\" target=\"_blank\" rel=\"noopener\">AssemblyAI blog</a></p><ul><li>Most accurate STT model they've shipped. Native code-switching across 18 languages, best speaker diarization (cpWER-optimized)</li><li>Realtime variant with rolling conversation memory — cut WER by 10.2% across 20,000 voice-agent files</li><li>Healthcare: prior-visit notes cut missed medical terms by 31%</li></ul><h3>Real World VoiceEQ — HuggingFace (July 2026)</h3><p>New framework for measuring the human quality of voice AI output.</p>"
+    },
+    {
+      id: "research",
+      kicker: "Research & Improvements",
+      title: "SWE-Bench Pro audit finds 30% broken, Kimi K3 architecture deep-dive, and vLLM hits native speed",
+      type: "facts",
+      html: "<h3>SWE-Bench Pro Audit — OpenAI (Jul 8, 2026)</h3><p><a href=\"https://openai.com/index/separating-signal-from-noise-coding-evaluations/\" target=\"_blank\" rel=\"noopener\">OpenAI blog</a></p><p><strong>~30% of SWE-Bench Pro tasks are broken.</strong> OpenAI used an investigator-agent pipeline to audit the benchmark. Published one day before GPT-5.6 GA, which trailed Fable 5 on SWE-Bench Pro (64.6% vs 80%). Key insight: even \"gold standard\" coding benchmarks need continuous auditing.</p><h3>vLLM Transformers Backend — Native Speed (Jul 2026)</h3><p>Transformers library as vLLM backend achieving native-speed performance. No more trade-off between HF ecosystem and inference speed.</p><h3>VKUE: 34.7B Reasoner on Laptop / Bare CPU (Jul 2026)</h3><p>Running a 34.7B reasoning model on laptop-class hardware without GPU.</p><h3>NVIDIA Nemotron 3 Embed #1 on RTEB (Jul 15, 2026)</h3><p>Three variants: 8B (flagship), 1B (cost/latency), 1B-NVFP4 (Blackwell-optimized). Top of the retrieval benchmark.</p><h3>Distillation in 2026 Survey — HuggingFace (Jul 2026)</h3><p>Which frontier models use distillation and how — timely given Qwen 3.8 and Inkling's fine-tuning focus.</p>"
+    },
+    {
+      id: "techniques",
+      kicker: "Try This Week",
+      title: "Parallel agent code migration, GPT-5.6 programmatic tool calling, and SQLite migrations",
+      type: "try-it",
+      html: "<h3>1. Parallel Agent Code Migration (from the Bun rewrite)</h3><p><strong>Source:</strong> <a href=\"https://bun.com/blog/bun-in-rust\" target=\"_blank\" rel=\"noopener\">Jarred Sumner's Bun blog</a> + <a href=\"https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust\" target=\"_blank\" rel=\"noopener\">Simon Willison</a></p><p>Split your codebase by subsystem, run parallel Claude Code on each. Use adversarial review: 1 implementer, 2 reviewers per subsystem. The test suite is the conformance contract — write exhaustive tests first, then let agents fill the implementation.</p><p><strong>Try it:</strong> Structure your repo into independent subdirectories. Run <code>claude</code> on each with the brief \"translate to target language, maintaining all existing tests.\" Budget ~$15K per 100K lines at current API pricing.</p><h3>2. GPT-5.6 Programmatic Tool Calling</h3><p><strong>Source:</strong> <a href=\"https://openai.com/index/previewing-gpt-5-6-sol/\" target=\"_blank\" rel=\"noopener\">OpenAI GPT-5.6 docs</a></p><p>Replace JSON function schemas with JavaScript orchestration for complex tool chains. The model calls tools, processes results, and calls more tools in a single response — no round-trip needed per tool.</p><h3>3. Gemini Managed Agents for Background Tasks</h3><p><strong>Source:</strong> <a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api\" target=\"_blank\" rel=\"noopener\">Google AI Blog</a></p><p>Fire off agent tasks asynchronously instead of polling loops. Connect to remote MCP servers, add custom functions with auto-refreshing credentials.</p>"
+    },
+    {
+      id: "legal",
+      kicker: "Legal & Economics",
+      title: "Apple sues OpenAI, Altman's leaked 2022 email, and the $1T Nvidia drop",
+      type: "facts",
+      html: "<h3>Apple Sues OpenAI for Trade Secret Theft (Jul 10, 2026)</h3><p><a href=\"https://www.axios.com/2026/07/10/apple-sues-openai-trade-secret-theft\" target=\"_blank\" rel=\"noopener\">Axios</a> | <a href=\"https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html\" target=\"_blank\" rel=\"noopener\">CNBC</a> | <a href=\"https://www.bloomberg.com/news/articles/2026-07-10/apple-sues-openai-for-trade-secret-theft-in-blockbuster-case\" target=\"_blank\" rel=\"noopener\">Bloomberg</a></p><ul><li>Federal lawsuit in Northern District of California. Names OpenAI, Chief Hardware Officer <strong>Tang Tan</strong> (former Apple VP), former engineer <strong>Chang Liu</strong>, and <strong>io Products</strong> (Jony Ive's company, acquired by OpenAI for $6.5B in 2025)</li><li><strong>400+ former Apple employees</strong> now at OpenAI, primarily hardware division</li><li>Allegations: \"show and tell\" sessions where candidates brought Apple parts, \"LOL\" texts, metal-finishing caper. Apple's filing calls OpenAI's hardware business \"rotten to its core\"</li><li>OpenAI: \"No interest in other companies' trade secrets.\" Altman: \"Not afraid of Apple.\"</li><li>Shocking reversal of the 2024 ChatGPT-iPhone partnership. Case 5:26-cv-07078</li></ul><h3>Sam Altman 2022 Email Leaked (Jul 19-20, 2026)</h3><p><a href=\"https://simonwillison.net/2026/Jul/20/sam-altman/\" target=\"_blank\" rel=\"noopener\">Simon Willison</a></p><p>Oct 1, 2022 email to OpenAI board, exposed in Musk v. Altman case. Altman proposed releasing a GPT-3-level local model specifically \"before Stability or someone else does\" because it \"helps discourage others from releasing similarly-powerful models, and makes it harder for new efforts to get funded.\" The open-source strategy was about market deterrence, not altruism.</p><h3>Nvidia $1T Market Cap Drop (Jul 11, 2026)</h3><p>Historic single-stock valuation hit reported mid-July.</p><h3>Enterprise AI Economics</h3><ul><li>Microsoft forming $2.5B AI deployment company — building corporate API/middleware/data plumbing, not new models</li><li>Cisco rolling out AI agents to all 90,000 employees (Aug 2026) — coding environments + admin workflows</li><li>AI enterprise software expected $37.5B in 2026 (Gartner)</li></ul>"
+    },
+    {
+      id: "opinion",
+      kicker: "Opinion & Ideas",
+      title: "The model-is-product era is ending — customization, legal risk, and open-weight strategy define the second half of 2026",
+      type: "opinion",
+      html: "<p><em>Opinions are arguments, not facts. Each attributed to its source.</em></p><p><span class=\"who\">Sam Altman (2022 email):</span> The leaked email reveals that OpenAI's open-source positioning was never about democratization — it was calculated market deterrence. \"We'd like to create a language model with the approximate capability of GPT-3 that can run locally on consumer hardware and release that… before Stability or someone else does.\" The strategy: release enough to starve competitors' funding, keep the real frontier locked. Altman's 2025 admission that OpenAI was \"on the wrong side of history\" reads differently now.</p><p><span class=\"who\">Andrew Kelley (Zig creator):</span> Called Bun's Claude-written Rust port \"unreviewed slop\" — not about the language choice but \"the diverging value systems of the two projects.\" The critique centers on 13,044 unsafe Rust blocks (vs 73 in equivalent hand-written Rust). The speed of AI migration doesn't equal quality.</p><p><span class=\"who\">Simon Willison (Kimi K3 context):</span> The significance of Kimi K3 isn't that it's first on frontend code — it's that Moonshot is promising open weights at 3T scale. The open frontier just moved from 600B active models to something that can actually compete with closed frontier. The question is whether the licensing (promised Jul 27) actually delivers on the promise.</p><p><span class=\"who\">Kenton Varda (via Bun discussion):</span> Called for a \"moratorium on AI-written change descriptions,\" arguing they're \"worse than useless.\" A counterpoint to the Bun rewrite's speed: peer review and documentation quality collapse at AI scale.</p>"
+    }
+  ],
+  sources: {
+    videos: [],
+    articles: [
+      {
+        title: "Kimi K3 Model Overview — HuggingFace",
+        url: "https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei"
+      },
+      {
+        title: "Inkling by Thinking Machines — HuggingFace",
+        url: "https://huggingface.co/blog#welcome-inkling-by-thinking-machines"
+      },
+      {
+        title: "GPT-5.6 Preview — OpenAI",
+        url: "https://openai.com/index/previewing-gpt-5-6-sol/"
+      },
+      {
+        title: "Introducing GPT-Live — OpenAI",
+        url: "https://openai.com/index/introducing-gpt-live/"
+      },
+      {
+        title: "Separating signal from noise in coding evaluations — OpenAI",
+        url: "https://openai.com/index/separating-signal-from-noise-coding-evaluations/"
+      },
+      {
+        title: "Apple sues OpenAI for trade secret theft — Axios",
+        url: "https://www.axios.com/2026/07/10/apple-sues-openai-trade-secret-theft"
+      },
+      {
+        title: "Apple sues OpenAI alleging trade secret theft — CNBC",
+        url: "https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html"
+      },
+      {
+        title: "Government of Alberta uses Claude — Anthropic",
+        url: "https://www.anthropic.com/news/alberta-government-claude-cybersecurity"
+      },
+      {
+        title: "The Making of Claude Code — Anthropic",
+        url: "https://www.anthropic.com/features/making-of-claude-code"
+      },
+      {
+        title: "Expanding Managed Agents — Google AI Blog",
+        url: "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api"
+      },
+      {
+        title: "HuggingFace Security Incident — July 2026",
+        url: "https://huggingface.co/blog/security-incident-july-2026"
+      },
+      {
+        title: "GPT-5.6 analysis — Simon Willison",
+        url: "https://simonwillison.net/2026/Jul/9/gpt-5-6/"
+      },
+      {
+        title: "Bun rewrite analysis — Simon Willison",
+        url: "https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust"
+      },
+      {
+        title: "Sam Altman 2022 email — Simon Willison",
+        url: "https://simonwillison.net/2026/Jul/20/sam-altman/"
+      },
+      {
+        title: "sqlite-utils 4.0 — Simon Willison",
+        url: "https://simonwillison.net/2026/Jul/7/sqlite-utils-4/"
+      },
+      {
+        title: "Zig creator calls Bun Rust rewrite 'unreviewed slop' — The Register",
+        url: "https://www.theregister.com/devops/2026/07/14/zig-creator-calls-buns-claude-rust-rewrite-unreviewed-slop/"
+      },
+      {
+        title: "NVIDIA Nemotron 3 Embed #1 — HuggingFace",
+        url: "https://huggingface.co/blog/nvidia/nemotron-3-embed-wins-rteb"
+      },
+      {
+        title: "Real World VoiceEQ — HuggingFace",
+        url: "https://huggingface.co/blog/assets/real-world-voiceeq/thumbnail.png"
+      },
+      {
+        title: "Hermes Agent News",
+        url: "https://hermes-ai.net/news/"
+      },
+      {
+        title: "GPT-5.6 GA rollout — Reuters",
+        url: "https://www.reuters.com/technology/openai-gets-us-approval-broad-gpt-56-rollout-axios-reports-2026-07-08"
+      }
+    ],
+    x: [],
+    notes: "Window: Jul 1–21, 2026 (21 days, covering the most recent 21 days since the gap since last edition on Jun 29 exceeded 21 days per rule). Voice/audio was lighter than usual — GPT-Live and AssemblyAI Universal-3.5 Pro are the standouts. YouTube transcript mining was limited (subagent tool-guardrail issues; supplemented via Tavily searches). X/Twitter profiles not accessed (no API key available). Agentic frameworks saw few July releases (Q2 was the big quarter with MAF 1.0, Pydantic AI V2, LlamaIndex Workflows 1.0); the story this window is models enabling agents rather than frameworks shipping."
+  }
+},
+{
   date: "2026-06-29",
   label: "June 29, 2026",
   headline: "Chitos turns vulnerability scanning into autonomous exploit proof — while the Grok adult-content reckoning and enterprise spending revolt reshape the market",
